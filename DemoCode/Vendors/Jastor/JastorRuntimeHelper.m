@@ -30,16 +30,6 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
     return [typeAttribute rangeOfString:@"R"].length > 0;
 }
 
-+ (BOOL)isPropertyCopyOfClass:(Class)klass propertyName:(NSString *)propertyName{
-    const char * type = property_getAttributes(class_getProperty(klass, [propertyName UTF8String]));
-    NSString *typeString = [NSString stringWithUTF8String:type];
-    //判断是否含有用逗号分隔的字符'C'的组
-    if([typeString rangeOfString:@",C,"].location != NSNotFound){
-        return YES;
-    }
-    return NO;
-}
-
 + (NSArray *)propertyNames:(Class)klass {
     if (klass == [Jastor class]) {
         return [NSArray array];
@@ -65,10 +55,11 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
 		
 		[propertyNamesArray addObject:[NSString stringWithUTF8String:name]];
 	}
+	free(properties);
+	
 	[propertyListByClass setObject:propertyNamesArray forKey:className];
     NSArray* arr = [JastorRuntimeHelper propertyNames:class_getSuperclass(klass)];
 	[propertyNamesArray addObjectsFromArray:arr];
-    free(properties);
     return propertyNamesArray;
 }
 
@@ -94,13 +85,7 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
 		const char * name = property_getName(property);
 		if (strcmp(cPropertyName, name) == 0) {
 			free(properties);
-
-            //by lipeng. for stability.
-            const char* propertyTypeName = property_getTypeName(property);
-            if(propertyTypeName == NULL || propertyTypeName[0] == '\0'){
-                return nil;
-            }
-			NSString *className = [NSString stringWithUTF8String:propertyTypeName];
+			NSString *className = [NSString stringWithUTF8String:property_getTypeName(property)];
 			[propertyClassByClassAndPropertyName setObject:className forKey:key];
             //we found the property - we need to free
 			return NSClassFromString(className);

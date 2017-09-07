@@ -15,8 +15,6 @@
 		319A0DE81F6127E80088547F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 319A0DCB1F6123A90088547F /* LaunchScreen.storyboard */; };
 		319A0DE91F6127EA0088547F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 319A0DCA1F6123A90088547F /* Assets.xcassets */; };
 		319A0E411F6128780088547F /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0E181F6128780088547F /* GTMBase64.m */; };
-		319A0E421F6128780088547F /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0E1D1F6128780088547F /* Jastor.m */; };
-		319A0E431F6128780088547F /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0E1F1F6128780088547F /* JastorRuntimeHelper.m */; };
 		319A0E441F6128780088547F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0E221F6128780088547F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		319A0E451F6128780088547F /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0E251F6128780088547F /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		319A0E461F6128780088547F /* NSData+QBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0E271F6128780088547F /* NSData+QBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -60,6 +58,8 @@
 		319A0EC31F6135820088547F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0EBB1F6135820088547F /* AFURLRequestSerialization.m */; };
 		319A0EC41F6135820088547F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0EBD1F6135820088547F /* AFURLResponseSerialization.m */; };
 		319A0EC51F6135820088547F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0EBF1F6135820088547F /* AFURLSessionManager.m */; };
+		319A0EDB1F6155A80088547F /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0ED81F6155A80088547F /* Jastor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		319A0EDC1F6155A80088547F /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0EDA1F6155A80088547F /* JastorRuntimeHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,11 +79,6 @@
 		319A0E171F6128780088547F /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		319A0E181F6128780088547F /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		319A0E191F6128780088547F /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		319A0E1B1F6128780088547F /* Jastor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Jastor-Prefix.pch"; sourceTree = "<group>"; };
-		319A0E1C1F6128780088547F /* Jastor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jastor.h; sourceTree = "<group>"; };
-		319A0E1D1F6128780088547F /* Jastor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jastor.m; sourceTree = "<group>"; };
-		319A0E1E1F6128780088547F /* JastorRuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JastorRuntimeHelper.h; sourceTree = "<group>"; };
-		319A0E1F1F6128780088547F /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JastorRuntimeHelper.m; sourceTree = "<group>"; };
 		319A0E211F6128780088547F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		319A0E221F6128780088547F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		319A0E241F6128780088547F /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -174,6 +169,11 @@
 		319A0EBD1F6135820088547F /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		319A0EBE1F6135820088547F /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		319A0EBF1F6135820088547F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		319A0ED61F6155A80088547F /* Jastor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Jastor-Prefix.pch"; sourceTree = "<group>"; };
+		319A0ED71F6155A80088547F /* Jastor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jastor.h; sourceTree = "<group>"; };
+		319A0ED81F6155A80088547F /* Jastor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jastor.m; sourceTree = "<group>"; };
+		319A0ED91F6155A80088547F /* JastorRuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JastorRuntimeHelper.h; sourceTree = "<group>"; };
+		319A0EDA1F6155A80088547F /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JastorRuntimeHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,11 +383,11 @@
 		319A0E1A1F6128780088547F /* Jastor */ = {
 			isa = PBXGroup;
 			children = (
-				319A0E1B1F6128780088547F /* Jastor-Prefix.pch */,
-				319A0E1C1F6128780088547F /* Jastor.h */,
-				319A0E1D1F6128780088547F /* Jastor.m */,
-				319A0E1E1F6128780088547F /* JastorRuntimeHelper.h */,
-				319A0E1F1F6128780088547F /* JastorRuntimeHelper.m */,
+				319A0ED61F6155A80088547F /* Jastor-Prefix.pch */,
+				319A0ED71F6155A80088547F /* Jastor.h */,
+				319A0ED81F6155A80088547F /* Jastor.m */,
+				319A0ED91F6155A80088547F /* JastorRuntimeHelper.h */,
+				319A0EDA1F6155A80088547F /* JastorRuntimeHelper.m */,
 			);
 			path = Jastor;
 			sourceTree = "<group>";
@@ -589,10 +589,10 @@
 				319A0E771F612B710088547F /* PPAFHTTPClient.m in Sources */,
 				319A0E781F612B710088547F /* PPCache.m in Sources */,
 				319A0EA71F612DEB0088547F /* AUNavigationBar.m in Sources */,
-				319A0E421F6128780088547F /* Jastor.m in Sources */,
 				319A0E7A1F612B710088547F /* PPJSONRequestSerializer.m in Sources */,
 				319A0E611F612A810088547F /* UIView+UIView_Additional.m in Sources */,
 				319A0EA81F612DEB0088547F /* AUNodataView.m in Sources */,
+				319A0EDC1F6155A80088547F /* JastorRuntimeHelper.m in Sources */,
 				319A0EA51F612DEB0088547F /* AUFailView.m in Sources */,
 				319A0EB01F612DEB0088547F /* BaseView.m in Sources */,
 				319A0E451F6128780088547F /* NSData+Base64.m in Sources */,
@@ -602,7 +602,6 @@
 				319A0E751F612B710088547F /* BaseRequest.m in Sources */,
 				319A0DDA1F6123EE0088547F /* DBConst.m in Sources */,
 				319A0E411F6128780088547F /* GTMBase64.m in Sources */,
-				319A0E431F6128780088547F /* JastorRuntimeHelper.m in Sources */,
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
 				319A0EA21F612DEB0088547F /* BaseTabBarController.m in Sources */,
 				319A0EAD1F612DEB0088547F /* BaseLineCell.m in Sources */,
@@ -618,6 +617,7 @@
 				319A0EAF1F612DEB0088547F /* BaseLineView.m in Sources */,
 				319A0EC51F6135820088547F /* AFURLSessionManager.m in Sources */,
 				319A0E5E1F612A810088547F /* UIImage+Additional.m in Sources */,
+				319A0EDB1F6155A80088547F /* Jastor.m in Sources */,
 				319A0EC11F6135820088547F /* AFNetworkReachabilityManager.m in Sources */,
 				319A0EAC1F612DEB0088547F /* BaseLineButton.m in Sources */,
 				319A0E461F6128780088547F /* NSData+QBase64.m in Sources */,

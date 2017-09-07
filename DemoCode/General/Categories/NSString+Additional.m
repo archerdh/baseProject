@@ -30,6 +30,8 @@
 
 
 - (NSString *)encodingURL {
+    
+    
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
                                                                 (CFStringRef)self,
                                                                 NULL,

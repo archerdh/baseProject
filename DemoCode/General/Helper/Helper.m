@@ -354,59 +354,31 @@
     if(labelString.length == 0){
         return 0.0;
     }
-
-    if ([UIDevice currentDevice].systemVersion.doubleValue <= 7.0) {
-        CGSize maximumLabelSize = CGSizeMake(width,height);
-        CGSize expectedLabelSize = [labelString sizeWithFont:[UIFont systemFontOfSize:fontsize]
-                                           constrainedToSize:maximumLabelSize
-                                               lineBreakMode:0];
-        
-        return (expectedLabelSize.width);
-    } else {
-        CGSize size = CGSizeMake(width, height);
-        NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontsize],NSFontAttributeName,nil];
-        CGSize actualsize = [labelString boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:tdic context:nil].size;
-
-        //得到的宽度为0，返回最大宽度
-        if(actualsize.width == 0){
-            return width;
-        }
-
-        return actualsize.width;
+    CGSize size = CGSizeMake(width, height);
+    NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontsize],NSFontAttributeName,nil];
+    CGSize actualsize = [labelString boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:tdic context:nil].size;
+    
+    //得到的宽度为0，返回最大宽度
+    if(actualsize.width == 0){
+        return width;
     }
+    
+    return actualsize.width;
 }
 
 + (CGFloat)heightForLabelWithString:(NSString *)labelString withFontSize:(CGFloat)fontsize withWidth:(CGFloat)width withHeight:(CGFloat)height {
-    
-    if ([UIDevice currentDevice].systemVersion.doubleValue <= 7.0) {
-        CGSize maximumLabelSize = CGSizeMake(width, height);
-        CGSize expectedLabelSize = [labelString sizeWithFont:[UIFont systemFontOfSize:fontsize]
-                                           constrainedToSize:maximumLabelSize
-                                               lineBreakMode:0];
-        
-        return (int)(expectedLabelSize.height);
-    } else {
-        CGSize size = CGSizeMake(width, height);
-        NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontsize],NSFontAttributeName,nil];
-        CGSize actualsize = [labelString boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:tdic context:nil].size;
-        return actualsize.height;
-    }
+    CGSize size = CGSizeMake(width, height);
+    NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontsize],NSFontAttributeName,nil];
+    CGSize actualsize = [labelString boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:tdic context:nil].size;
+    return actualsize.height;
 }
 
 + (CGSize)sizeForLabelWithString:(NSString *)string withFont:(UIFont *)font constrainedToSize:(CGSize)size{
-    if ([UIDevice currentDevice].systemVersion.doubleValue <= 7.0) {
-        CGSize expectedLabelSize = [string sizeWithFont:font
-                                           constrainedToSize:size
-                                               lineBreakMode:0];
-        
-        return expectedLabelSize;
-    } else {
-        NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil];
-        CGSize actualsize = [string boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:tdic context:nil].size;
-        actualsize.width = (NSInteger)(actualsize.width + 1.0);
-        actualsize.height = (NSInteger)(actualsize.height + 1.0);
-        return actualsize;
-    }
+    NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil];
+    CGSize actualsize = [string boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:tdic context:nil].size;
+    actualsize.width = (NSInteger)(actualsize.width + 1.0);
+    actualsize.height = (NSInteger)(actualsize.height + 1.0);
+    return actualsize;
 }
 
 /**
