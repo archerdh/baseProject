@@ -1,0 +1,16 @@
+//
+//  DBPrefixHeader.pch
+//  DemoCode
+//
+//  Created by zheng zhang on 2017/9/7.
+//  Copyright © 2017年 auction. All rights reserved.
+//
+
+#ifndef DBPrefixHeader_pch
+#define DBPrefixHeader_pch
+
+#import "DBConst.h"
+#import "Helper.h"
+#import "DBMacroHeader.h"
+
+#endif /* PrefixHeader_pch */
