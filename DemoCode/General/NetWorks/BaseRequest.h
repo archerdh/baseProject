@@ -16,19 +16,6 @@ typedef enum{
 
 @class BaseRequest;
 
-/**
- @brief 基于AF封装的请求基类
- @code 
- 初始化方法，默认init方法是使用post请求
- - (instancetype)initPostMethod:(NSString *)methodName;
- - (instancetype)initPostMethod:(NSString *)methodName numOfRepeat:(NSInteger)numOfRepeat;
- - (instancetype)initGetMethod:(NSString *)methodName;
- - (instancetype)initGetMethod:(NSString *)methodName numOfRepeat:(NSInteger)numOfRepeat;
- 发送请求
- -(void)sendRequestSuccFinishBlock:(void(^)(id response))requestFinishBlock;
- -(void)sendRequestSuccFinishBlock:(void(^)(id response))requestFinishBlock requestFailFinishBlock:(void(^)(NSError *error))requestFailFinishBlock;
- -(void)sendRequestSuccFinishBlock:(void(^)(id response))requestFinishBlock requestBusinessFailureBlock:(void(^)(id response))requestBusinessFailureBlock requestFailFinishBlock:(void(^)(NSError *error))requestFailFinishBlock;
- */
 @interface BaseRequest : NSObject
 #pragma mark -
 - (instancetype)initPostMethod:(NSString *)methodName;

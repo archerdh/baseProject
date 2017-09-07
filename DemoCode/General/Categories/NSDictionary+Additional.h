@@ -10,9 +10,6 @@
 @interface NSDictionary (Additional)
 /**
  *  获取bool类型的值,默认值NO
- *
- *  @param key
- *
  *  @return value
  */
 - (BOOL)getBoolValueForKey:(NSString *)key;

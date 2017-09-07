@@ -226,13 +226,4 @@ UIImageView *creatXRImageView(CGRect frame,UIImage *image){
     return imageView;
 }
 
-/**
- *  @brief 友盟自定义事件统计相关
- */
-- (void)UMClickWithEventId:(NSString *)eventId
-{
-}
-- (void)UMBeginEvent {}
-- (void)UMEndEvent {}
-
 @end

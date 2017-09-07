@@ -104,7 +104,7 @@
 /**
  *@brief 根据字符串获取label的宽度
  *@param labelString label的text
- *@param fontSize label的字体大小，以systemFont为标准
+ *@param fontsize label的字体大小，以systemFont为标准
  *@param width 最大宽度
  *@param height 最大高度
  */
@@ -112,7 +112,7 @@
 
 /**
  *@brief 根据字符串获取label的尺寸
- *@param labelString label的text
+ *@param string label的text
  *@param font label的字体
  *@param size 限制的最大尺寸
  */

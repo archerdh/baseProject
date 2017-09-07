@@ -7,8 +7,6 @@
 //
 
 #import "PPAFHTTPClient.h"
-#import "AFHTTPRequestOperation.h"
-#import "AFURLConnectionOperation.h"
 #import "NetworkHelper.h"
 #import "PPJSONRequestSerializer.h"
 #import "PPHTTPResponseSerializer.h"

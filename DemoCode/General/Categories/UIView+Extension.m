@@ -85,8 +85,6 @@
 
 - (void)setSize:(CGSize)size
 {
-//    self.width = size.width;
-//    self.height = size.height;
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
@@ -102,9 +100,24 @@
 {
     return CGRectGetMaxX(self.frame);
 }
+
+
 - (CGFloat)maxY
 {
     return CGRectGetMaxY(self.frame);
 }
+
+//去除警告，无效
+- (void)setMaxX:(CGFloat)maxX
+{
+    self.maxX = maxX;
+}
+
+//去除警告，无效
+- (void)setMaxY:(CGFloat)maxY
+{
+    self.maxY = maxY;
+}
+
 
 @end

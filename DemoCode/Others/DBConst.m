@@ -8,5 +8,5 @@
 
 #import "DBConst.h"
 
-NSString *const kBaseURL = @"http://testcangpai.startvshow.com/";//测试ip
-NSString *const kShareHeadURL = @"http://testshare.startvshow.com/collectionAuction/";
+NSString *const kBaseURL = @"";//测试ip
+NSString *const kShareHeadURL = @"";

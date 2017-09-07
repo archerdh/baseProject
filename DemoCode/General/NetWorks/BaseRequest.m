@@ -9,7 +9,6 @@
 #import "BaseRequest.h"
 #import <objc/objc.h>
 #import <objc/runtime.h>
-#import "AFHTTPRequestOperation.h"
 #import "PPAFHTTPClient.h"
 #import "Helper.h"
 #import "NetworkHelper.h"
@@ -236,7 +235,6 @@
     });
 }
 /** @brief 获取数据完毕后的dic
- *  @param isWebFinish 是否是网络请求获取的字典
  *  @param resultDic 网络请求字典结果
  */
 -(void)handlerSuccFinishResponseWithDic:(NSMutableDictionary*)resultDic

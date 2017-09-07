@@ -56,14 +56,14 @@
 /**
  @brief   对请求的body进行处理，若是需要加密，子类请覆写此方法。默认不加密，直接返回bodyDic；若是需加密，则返回一个加密后的NSData类型数据
  @param   request 当前的请求，扩展可用
- @param   bodyDic 请求参数的参数字典
+ @param   parameters 请求参数的参数字典
  @return  在BaseRequest当中判断是否加密，是通过此方法返回的内容来判断；若为NSData类型，则说明加密；否则，说明没有加密
  */
 - (id)handleOnRequest:(NSURLRequest *)request parameters:(NSDictionary *)parameters;
 
 /** 
  @brief   对返回的数据进行处理，根据业务需求若是需要解密，则可以通过此方法对reponseData的数据进行解密
- @param   reponse       AF返回的AFHTTPRequestOperation中的response
+ @param   response       AF返回的AFHTTPRequestOperation中的response
  @param   responseData  请求返回的数据
  @code
  例子：

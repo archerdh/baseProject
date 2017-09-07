@@ -34,26 +34,6 @@ typedef NS_ENUM(NSInteger, TCShareType){
  */
 -(void)setupDatas;
 
-/**
- *  分享
- *
- */
-- (void)showShareMethodView;
-
-/**
- *  分享成功回调，需要重写
- *
- */
-- (void)shareSuccessWith:(id)result Error:(NSError *)error;
-
-/**
- *  @brief 友盟自定义事件统计相关
- */
-- (void)UMClickWithEventId:(NSString *)eventId;
-// 子类自行实现重写与调用
-- (void)UMBeginEvent;
-- (void)UMEndEvent;
-
 // 快速创建
 UIButton *creatXRButton(CGRect frame,NSString *title,UIImage*normalImage,UIImage *hightImage);
 UITextField *creatXRTextField(NSString *placeTitle,CGRect frame);
@@ -81,13 +61,5 @@ UIImageView *creatXRImageView(CGRect frame,UIImage *image);
 - (void)setNavRightButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action;
 // 设置导航器左边按钮一个
 - (void)setNavLeftButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action;
-
-/**
- *  @brief 友盟自定义事件统计相关
- */
-- (void)UMClickWithEventId:(NSString *)eventId;
-// 子类自行实现重写与调用
-- (void)UMBeginEvent;
-- (void)UMEndEvent;
 
 @end
