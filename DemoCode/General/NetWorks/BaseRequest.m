@@ -374,7 +374,7 @@
 /**
  *	@brief	将json数据转换成id
  *
- *	@param data 数据
+ *	@param jsonData 数据
  *
  *	@return	 id类型的数据
  */

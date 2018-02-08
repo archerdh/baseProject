@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		319A0DB61F6122590088547F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0DB51F6122590088547F /* ViewController.m */; };
 		319A0DD11F6123A90088547F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0DC91F6123A90088547F /* AppDelegate.m */; };
 		319A0DD61F6123A90088547F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0DD01F6123A90088547F /* main.m */; };
 		319A0DDA1F6123EE0088547F /* DBConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0DD91F6123EE0088547F /* DBConst.m */; };
@@ -96,12 +95,12 @@
 		319A0F4E1F6157760088547F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F3A1F6157760088547F /* UIView+MJExtension.m */; };
 		319A0F511F6157A70088547F /* UIScrollView+AURefreshMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F501F6157A70088547F /* UIScrollView+AURefreshMethods.m */; };
 		319A0F541F61586F0088547F /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F531F61586F0088547F /* NullSafe.m */; };
+		31E7BEE1202C598300CD5BDF /* DBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE0202C598300CD5BDF /* DBRootViewController.m */; };
+		31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		319A0DAB1F6122590088547F /* DemoCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		319A0DB41F6122590088547F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		319A0DB51F6122590088547F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		319A0DC81F6123A90088547F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		319A0DC91F6123A90088547F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		319A0DCA1F6123A90088547F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,6 +281,10 @@
 		319A0F4F1F6157A70088547F /* UIScrollView+AURefreshMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AURefreshMethods.h"; sourceTree = "<group>"; };
 		319A0F501F6157A70088547F /* UIScrollView+AURefreshMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AURefreshMethods.m"; sourceTree = "<group>"; };
 		319A0F531F61586F0088547F /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		31E7BEDF202C598300CD5BDF /* DBRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRootViewController.h; sourceTree = "<group>"; };
+		31E7BEE0202C598300CD5BDF /* DBRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRootViewController.m; sourceTree = "<group>"; };
+		31E7BEE4202C59E300CD5BDF /* DBCustomLibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryViewController.h; sourceTree = "<group>"; };
+		31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomLibraryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,8 +322,6 @@
 				319A0DE01F6126950088547F /* General */,
 				319A0DDB1F61250E0088547F /* Resource */,
 				319A0DC71F6123A90088547F /* Others */,
-				319A0DB41F6122590088547F /* ViewController.h */,
-				319A0DB51F6122590088547F /* ViewController.m */,
 			);
 			path = DemoCode;
 			sourceTree = "<group>";
@@ -396,6 +397,8 @@
 		319A0DE11F6126AA0088547F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				31E7BEE2202C59C400CD5BDF /* CustomLibrary */,
+				31E7BEDE202C596300CD5BDF /* Root */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -757,6 +760,32 @@
 			path = NullSafe;
 			sourceTree = "<group>";
 		};
+		31E7BEDE202C596300CD5BDF /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				31E7BEDF202C598300CD5BDF /* DBRootViewController.h */,
+				31E7BEE0202C598300CD5BDF /* DBRootViewController.m */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		31E7BEE2202C59C400CD5BDF /* CustomLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				31E7BEE3202C59D400CD5BDF /* VC */,
+			);
+			path = CustomLibrary;
+			sourceTree = "<group>";
+		};
+		31E7BEE3202C59D400CD5BDF /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				31E7BEE4202C59E300CD5BDF /* DBCustomLibraryViewController.h */,
+				31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -836,12 +865,14 @@
 				319A0F031F6156800088547F /* SDWebImageManager.m in Sources */,
 				319A0EA31F612DEB0088547F /* BaseViewController.m in Sources */,
 				319A0F081F6156800088547F /* UIImageView+HighlightedWebCache.m in Sources */,
+				31E7BEE1202C598300CD5BDF /* DBRootViewController.m in Sources */,
 				319A0F041F6156800088547F /* SDWebImagePrefetcher.m in Sources */,
 				319A0EC21F6135820088547F /* AFSecurityPolicy.m in Sources */,
 				319A0EA91F612DEB0088547F /* BaseCell.m in Sources */,
 				319A0E5C1F612A810088547F /* NSString+Additional.m in Sources */,
 				319A0EAB1F612DEB0088547F /* BaseDoubleLineView.m in Sources */,
 				319A0EA11F612DEB0088547F /* BaseNavigationController.m in Sources */,
+				31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */,
 				319A0DD11F6123A90088547F /* AppDelegate.m in Sources */,
 				319A0F3F1F6157760088547F /* MJRefreshHeader.m in Sources */,
 				319A0E771F612B710088547F /* PPAFHTTPClient.m in Sources */,
@@ -890,7 +921,6 @@
 				319A0F4E1F6157760088547F /* UIView+MJExtension.m in Sources */,
 				319A0E5A1F612A810088547F /* NSDictionary+Additional.m in Sources */,
 				319A0DD61F6123A90088547F /* main.m in Sources */,
-				319A0DB61F6122590088547F /* ViewController.m in Sources */,
 				319A0EA41F612DEB0088547F /* BaseModel.m in Sources */,
 				319A0E601F612A810088547F /* UIView+Additional.m in Sources */,
 				319A0EAF1F612DEB0088547F /* BaseLineView.m in Sources */,

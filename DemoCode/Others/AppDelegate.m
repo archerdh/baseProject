@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+//VC
+#import "DBRootViewController.h"
+#import "BaseNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -15,12 +18,33 @@
 
 CGFloat KTC_SCREEN_RATION = 1.0f;
 CGFloat KTC_SCREEN_RATION_HOR = 1.0f;
-
+CGFloat SAFE_SCREEN_TOP = 20.0f; // iPhoneX顶部不可编辑高度
+CGFloat SAFE_SCREEN_BOTTOM = 0.0f;// iPhoneX底部不可编辑高度
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    // 设置布局辅助
+    KTC_SCREEN_RATION = kMainBoundsWidth/375.0;
+    if (@available(iOS 11.0, *)) {
+        SAFE_SCREEN_BOTTOM = self.window.safeAreaInsets.bottom;
+        SAFE_SCREEN_TOP = UIEdgeInsetsEqualToEdgeInsets(self.window.safeAreaInsets, UIEdgeInsetsZero) ? 20.0f : self.window.safeAreaInsets.top;
+    } else {
+        // Fallback on earlier versions
+        SAFE_SCREEN_BOTTOM = 0.0f;
+        SAFE_SCREEN_TOP = 20.0f;
+    }
+    
+    // 设置window为主window，并可见
+    [self.window makeKeyAndVisible];
+    DBRootViewController *rootVC = [[DBRootViewController alloc] init];
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:rootVC];
+    self.window.rootViewController = nav;
+    
     return YES;
 }
 
