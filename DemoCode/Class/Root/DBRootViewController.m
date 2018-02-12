@@ -11,6 +11,9 @@
 //vc
 #import "DBCustomLibraryViewController.h"
 
+//V
+#import "YYFPSLabel.h"
+
 @interface DBRootViewController ()
 
 @end
@@ -28,6 +31,9 @@
 {
     [self addNavigationBar];
     [self setNavTitle:@"主干"];
+    
+    YYFPSLabel *label = [[YYFPSLabel alloc] initWithFrame:CGRectMake(kMainBoundsWidth - 100, 30, 100, 30)];
+    [[UIApplication sharedApplication].keyWindow addSubview:label];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = kRect(0, 200, 100, 50);

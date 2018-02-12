@@ -18,8 +18,8 @@
 
 CGFloat KTC_SCREEN_RATION = 1.0f;
 CGFloat KTC_SCREEN_RATION_HOR = 1.0f;
-CGFloat SAFE_SCREEN_TOP = 20.0f; // iPhoneX顶部不可编辑高度
-CGFloat SAFE_SCREEN_BOTTOM = 0.0f;// iPhoneX底部不可编辑高度
+CGFloat KTC_TOP_MARGIN = 20.0f; // iPhoneX顶部不可编辑高度
+CGFloat KTC_BOTTOM_MARGIN = 0.0f;// iPhoneX底部不可编辑高度
 @implementation AppDelegate
 
 
@@ -31,12 +31,12 @@ CGFloat SAFE_SCREEN_BOTTOM = 0.0f;// iPhoneX底部不可编辑高度
     // 设置布局辅助
     KTC_SCREEN_RATION = kMainBoundsWidth/375.0;
     if (@available(iOS 11.0, *)) {
-        SAFE_SCREEN_BOTTOM = self.window.safeAreaInsets.bottom;
-        SAFE_SCREEN_TOP = UIEdgeInsetsEqualToEdgeInsets(self.window.safeAreaInsets, UIEdgeInsetsZero) ? 20.0f : self.window.safeAreaInsets.top;
+        KTC_BOTTOM_MARGIN = self.window.safeAreaInsets.bottom;
+        KTC_TOP_MARGIN = UIEdgeInsetsEqualToEdgeInsets(self.window.safeAreaInsets, UIEdgeInsetsZero) ? 20.0f : self.window.safeAreaInsets.top;
     } else {
         // Fallback on earlier versions
-        SAFE_SCREEN_BOTTOM = 0.0f;
-        SAFE_SCREEN_TOP = 20.0f;
+        KTC_BOTTOM_MARGIN = 0.0f;
+        KTC_TOP_MARGIN = 20.0f;
     }
     
     // 设置window为主window，并可见

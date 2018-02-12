@@ -35,7 +35,8 @@
 #define kUserDefaults [NSUserDefaults standardUserDefaults]
 
 extern CGFloat KTC_SCREEN_RATION; // 此处为声明，定义在AppDelegate
-extern CGFloat KTC_SCREEN_RATION_HOR; // 此处为声明，定义在AppDelegate
+extern CGFloat KTC_TOP_MARGIN; // 此处为声明，定义在AppDelegate
+extern CGFloat KTC_BOTTOM_MARGIN; // 此处为声明，定义在AppDelegate
 
 /**
  *  弱引用

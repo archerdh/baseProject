@@ -1,14 +1,14 @@
 //
-//  AUNavigationBar.m
-//  auction
+//  DBNavigationBar.m
+//  DemoCode
 //
-//  Created by 谭淇 on 2017/7/11.
-//  Copyright © 2017年 auction. All rights reserved.
+//  Created by zheng zhang on 2018/2/9.
+//  Copyright © 2018年 auction. All rights reserved.
 //
 
-#import "AUNavigationBar.h"
+#import "DBNavigationBar.h"
 
-@interface AUNavigationBar ()
+@interface DBNavigationBar ()
 
 @property (weak, nonatomic) UILabel *titleLabel;
 @property (weak, nonatomic) UIView *statusBarView;
@@ -19,17 +19,20 @@
 
 @end
 
-@implementation AUNavigationBar
-{
-    CGFloat _currentHeight;
-}
+@implementation DBNavigationBar
 
+{
+    CGFloat _statusBarHeight; // 状态栏高度
+    CGFloat _navigationHeight; // 导航栏高度
+    CGFloat _currentHeight; // 当前导航栏高度
+}
 
 + (instancetype)navigationBar
 {
+    // 初始化frame
     CGFloat W = MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    AUNavigationBar *bar = [[AUNavigationBar alloc] initWithFrame:CGRectMake(0, 0, W, 64)];
-    
+    CGFloat H = [UIApplication sharedApplication].statusBarFrame.size.height + 44;
+    DBNavigationBar *bar = [[DBNavigationBar alloc] initWithFrame:CGRectMake(0, 0, W, H)];
     [bar setupSubViews];
     return bar;
 }
@@ -50,23 +53,27 @@
 {
     return _currentHeight;
 }
+- (CGFloat)bottomMarginHeight
+{
+    return KTC_BOTTOM_MARGIN;
+}
 - (void)showAll
 {
-    _currentHeight = 64;
+    _currentHeight = _navigationHeight + _statusBarHeight;
     self.statusBarView.transform = CGAffineTransformIdentity;
     self.navigationBarView.transform = CGAffineTransformIdentity;
 }
 - (void)showHalf
 {
-    _currentHeight = 20;
+    _currentHeight = _statusBarHeight;
     self.statusBarView.transform = CGAffineTransformIdentity;
-    self.navigationBarView.transform = CGAffineTransformMakeTranslation(0, -44);
+    self.navigationBarView.transform = CGAffineTransformMakeTranslation(0, -_navigationHeight);
 }
 - (void)showNone
 {
     _currentHeight = 0;
-    self.statusBarView.transform = CGAffineTransformMakeTranslation(0, -64);
-    self.navigationBarView.transform = CGAffineTransformMakeTranslation(0, -64);
+    self.statusBarView.transform = CGAffineTransformMakeTranslation(0, -(_navigationHeight + _statusBarHeight));
+    self.navigationBarView.transform = CGAffineTransformMakeTranslation(0, -(_navigationHeight + _statusBarHeight));
 }
 - (CGRect)contentViewFrame
 {
@@ -79,23 +86,26 @@
 
 - (void)setupSubViews
 {
-    _currentHeight = 64;
+    // iPhone X 粗浅适配尝试
+    _statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    _navigationHeight = 44;
+    _currentHeight = _navigationHeight + _statusBarHeight;
     self.clipsToBounds = YES;
     
-    UIView *navigationView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.bounds.size.width, self.bounds.size.height - 20)];
-    navigationView.backgroundColor = [UIColor colorWithRed:((float)(0xf6))/255.0 green:((float)(0xf6))/255.0 blue:((float)(0xf6))/255.0 alpha:1.0];
+    UIView *navigationView = [[UIView alloc] initWithFrame:CGRectMake(0, _statusBarHeight, self.bounds.size.width, _navigationHeight)];
+    navigationView.backgroundColor = UIColorFromRGB(0xffffff);
     self.navigationBarView = navigationView;
     [self addSubview:navigationView];
     
-    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 20)];
-    statusView.backgroundColor = [UIColor colorWithRed:((float)(0xf6))/255.0 green:((float)(0xf6))/255.0 blue:((float)(0xf6))/255.0 alpha:1.0];
+    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, _statusBarHeight)];
+    statusView.backgroundColor = UIColorFromRGB(0xffffff);
     self.statusBarView = statusView;
     [self addSubview:statusView];
     
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    backButton.frame = CGRectMake(3 * KTC_SCREEN_RATION, 0, 44, 44);
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = CGRectMake(3 * KTC_SCREEN_RATION, 0, _navigationHeight, _navigationHeight);
     backButton.exclusiveTouch = YES;
-    backButton.titleLabel.font = KFont(15, UIFontWeightRegular);
+    backButton.titleLabel.font = KFont(15, UIFontWeightSemibold);
     [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [backButton setImage:[[UIImage imageNamed:@"common_back_black"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -104,13 +114,13 @@
     [self setBackItemTitle:@"返回"];
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.navigationBarView.frame)-0.5, CGRectGetWidth(self.navigationBarView.frame), 0.5)];
-    lineView.backgroundColor = [UIColor colorWithRed:((float)(0xb3))/255.0 green:((float)(0xb3))/255.0 blue:((float)(0xb3))/255.0 alpha:1.0];
+    lineView.backgroundColor = UIColorFromRGB(0xeeeeee);
     [self.navigationBarView addSubview:lineView];
     self.bottomLineView = lineView;
     
     // 如果需要展示皮肤
-//    self.backgroundSkinView.frame = self.navigationBarView.bounds;
-//    [self.backgroundSkinView sd_setImageWithURL:[NSURL URLWithString:[TBObjectCoding tb_navigationSkin]]];
+    //    self.backgroundSkinView.frame = self.navigationBarView.bounds;
+    //    [self.backgroundSkinView sd_setImageWithURL:[NSURL URLWithString:[TBObjectCoding tb_navigationSkin]]];
     
     // 创建一个不穿透的响应
     UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDoNothing)];
@@ -121,8 +131,8 @@
 - (void)refreshNavigationSkin
 {
     // 如果需要展示皮肤
-//    self.backgroundSkinView.frame = self.navigationBarView.bounds;
-//    [self.backgroundSkinView sd_setImageWithURL:[NSURL URLWithString:[TBObjectCoding tb_navigationSkin]]];
+    //    self.backgroundSkinView.frame = self.navigationBarView.bounds;
+    //    [self.backgroundSkinView sd_setImageWithURL:[NSURL URLWithString:[TBObjectCoding tb_navigationSkin]]];
 }
 
 // setter
@@ -138,15 +148,16 @@
 {
     _backItemTitle = backItemTitle;
     
+    CGFloat backH = self.navigationBarView.bounds.size.height;
     if (backItemTitle && backItemTitle.length > 0) {
         [self.backButton setTitle:[NSString stringWithFormat:@"%@  ", backItemTitle] forState:UIControlStateNormal];
         [self.backButton sizeToFit];
         self.backButton.x = 16 * KTC_SCREEN_RATION - 5;
-        self.backButton.height = 44;
+        self.backButton.height = backH;
         self.backButton.centerY = CGRectGetHeight(self.navigationBarView.frame) * 0.5;
     } else {
         [self.backButton setTitle:@"" forState:UIControlStateNormal];
-        self.backButton.frame = CGRectMake(3 * KTC_SCREEN_RATION, 0, 44, 44);
+        self.backButton.frame = CGRectMake(3 * KTC_SCREEN_RATION, 0, backH, backH);
     }
     [self layoutTitleLabel];
 }
@@ -215,6 +226,28 @@
     
     [self layoutTitleLabel];
 }
+- (void)setBgAlpha:(CGFloat)bgAlpha
+{
+    _bgAlpha = bgAlpha;
+    self.titleLabel.alpha = bgAlpha;
+    NSString *imgTitle;
+    UIColor *backTitleColor;
+    if (bgAlpha >= 0.65) {
+        imgTitle = @"common_back_black";
+        backTitleColor = UIColorFromRGB(0x000000);
+    }else{
+        imgTitle = @"common_back_white";
+        backTitleColor = UIColorFromRGB(0xffffff);
+    }
+    [self.backButton setImage:[UIImage imageNamed:imgTitle] forState:UIControlStateNormal];
+    [self.backButton setTitleColor:backTitleColor forState:UIControlStateNormal];
+    
+    self.backgroundColor = UIColorFromRGBA(0xffffff, bgAlpha);
+    self.navigationBarView.backgroundColor = UIColorFromRGBA(0xffffff, bgAlpha);
+    self.statusBarView.backgroundColor = UIColorFromRGBA(0xffffff, bgAlpha);
+    self.bottomLineView.alpha = bgAlpha;
+    
+}
 
 // getter
 - (UILabel *)titleLabel
@@ -223,7 +256,7 @@
         UILabel *label = [[UILabel alloc] init];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor blackColor];
-        label.font = KFont(17, UIFontWeightRegular);
+        label.font = KFont(17, UIFontWeightSemibold);
         [self.navigationBarView addSubview:label];
         _titleLabel = label;
     }
@@ -242,8 +275,8 @@
 {
     if (_titleLabel != nil) {
         CGFloat barW = CGRectGetWidth(self.navigationBarView.frame);
-        CGFloat h = 20 * KTC_SCREEN_RATION;
-        CGFloat y = (CGRectGetHeight(self.navigationBarView.frame) - h) * 0.5;
+        CGFloat h = CGRectGetHeight(self.navigationBarView.frame);
+        CGFloat y = 0;
         CGRect titleframe = CGRectMake(16 * KTC_SCREEN_RATION, y, barW - 32 * KTC_SCREEN_RATION, h);
         if (!self.backButton.isHidden) {
             titleframe.origin.x = CGRectGetMaxX(self.backButton.frame);

@@ -11,7 +11,7 @@
 #import "Helper.h"
 @interface BaseViewController ()
 
-@property (strong, nonatomic) AUNavigationBar *navigationBar; // 导航栏
+@property (strong, nonatomic) DBNavigationBar *navigationBar; // 导航栏
 @end
 
 @implementation BaseViewController
@@ -66,10 +66,10 @@
 }
 
 #pragma mark - 导航栏相关
-- (AUNavigationBar *)navigationBar
+- (DBNavigationBar *)navigationBar
 {
     if (_navigationBar == nil) {
-        AUNavigationBar *subview = [AUNavigationBar navigationBar];
+        DBNavigationBar *subview = [DBNavigationBar navigationBar];
         subview.delegate = self;
         subview.backButton.hidden = self==self.navigationController.childViewControllers.firstObject;
         _navigationBar = subview;
@@ -119,7 +119,7 @@
 }
 
 // 子类可自行实现返回代理
-- (void)navigationBarDidClickBack:(AUNavigationBar *)navigationBar
+- (void)navigationBarDidClickBack:(DBNavigationBar *)navigationBar
 {
     [self.navigationController popViewControllerAnimated:YES];
 }

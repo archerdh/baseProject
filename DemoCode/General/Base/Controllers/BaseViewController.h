@@ -10,13 +10,13 @@
 #import "AUFailView.h"
 #import "AUNodataView.h"
 #import "AULoadingView.h"
-#import "AUNavigationBar.h"
+#import "DBNavigationBar.h"
 typedef NS_ENUM(NSInteger, TCShareType){
     TCShareLocationType = 0,
     TCShareNetworkType = 1
 };
 
-@interface BaseViewController : UIViewController <AUNavigationBarDelegate>
+@interface BaseViewController : UIViewController <DBNavigationBarDelegate>
 @property(nonatomic,weak)UIView *maskView; // 蒙版loadingView
 @property(nonatomic,strong)AUFailView *faildView;     //请求失败view
 @property(nonatomic,strong)AUNodataView *noDataView;    //无数据view
@@ -53,7 +53,7 @@ UIImageView *creatXRImageView(CGRect frame,UIImage *image);
  *  @brief 导航栏相关
  需要调用addNavigationBar方法添加到self.view上
  */
-@property (strong, nonatomic, readonly) AUNavigationBar *navigationBar;
+@property (strong, nonatomic, readonly) DBNavigationBar *navigationBar;
 - (void)addNavigationBar;
 - (void)removeNavigationBar;
 - (void)setNavTitle:(NSString *)title;
