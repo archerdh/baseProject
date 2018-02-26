@@ -10,4 +10,7 @@
 
 @interface DBCustomLibraryViewController : BaseViewController
 
+//是否允许显示拍照
+@property (assign, nonatomic) BOOL allowTakePhoto;
+
 @end
