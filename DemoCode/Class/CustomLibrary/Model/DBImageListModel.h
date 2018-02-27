@@ -4,7 +4,7 @@
 //
 //  Created by zheng zhang on 2018/2/26.
 //  Copyright © 2018年 auction. All rights reserved.
-//
+//  相册数据model
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, DBAssetMediaType) {
     DBAssetMediaTypeGif,
     DBAssetMediaTypeLivePhoto,
     DBAssetMediaTypeVideo,
+    DBAssetMediaTypeUnKnow,
 };
 
 @interface DBImageModel : NSObject
@@ -25,6 +26,8 @@ typedef NS_ENUM(NSUInteger, DBAssetMediaType) {
 
 @property (nonatomic, assign) DBAssetMediaType mediaType;
 
+/**初始化model对象*/
++ (instancetype)modelWithAsset:(PHAsset *)asset type:(DBAssetMediaType)type duration:(NSString *)duration;
 
 @end
 

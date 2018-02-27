@@ -15,7 +15,12 @@
 //M
 #import "DBImageListModel.h"
 
-@interface DBCustomLibraryViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+//VC
+#import "DBCustomLibraryForceTouchViewController.h"
+#import "DBCustomLibraryNavViewController.h"
+#import "DBCustomLibraryPreviewViewController.h"
+
+@interface DBCustomLibraryViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate>
 
 @property (strong, nonatomic) UIButton *cancleBtn;
 @property (strong, nonatomic) UICollectionView *collectionView;
@@ -42,8 +47,10 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
 - (DBImageListModel *)getImageSource
 {
     PHFetchOptions *option = [[PHFetchOptions alloc] init];
+    option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:0]];
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     __block DBImageListModel *model;
+    WS(weakSelf);
     [smartAlbums enumerateObjectsUsingBlock:^(PHAssetCollection *  _Nonnull collection, NSUInteger idx, BOOL * _Nonnull stop) {
         //获取相册内asset result
         if (collection.assetCollectionSubtype == 209) {
@@ -53,15 +60,94 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
             model.count = result.count;
             model.result = result;
             model.headImageAsset = result.lastObject;
+            model.models = [weakSelf getPhotoInResult:result];
         }
     }];
     return model;
 }
 
 #pragma mark - Others
+- (NSArray<DBImageModel *> *)getPhotoInResult:(PHFetchResult<PHAsset *> *)result
+{
+    NSMutableArray<DBImageModel *> *arrModel = [NSMutableArray array];
+    __block NSInteger count = 1;
+    [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DBAssetMediaType type = [self transformAssetType:obj];
+
+        [arrModel addObject:[DBImageModel modelWithAsset:obj type:type duration:0]];
+        count++;
+    }];
+    return arrModel;
+}
+
+//系统mediatype 转换为 自定义type
+- (DBAssetMediaType)transformAssetType:(PHAsset *)asset
+{
+    switch (asset.mediaType) {
+//        case PHAssetMediaTypeAudio:
+//            return DBAssetMediaType;
+        case PHAssetMediaTypeVideo:
+            return DBAssetMediaTypeVideo;
+        case PHAssetMediaTypeImage:
+            if ([[asset valueForKey:@"filename"] hasSuffix:@"GIF"])return DBAssetMediaTypeGif;
+            
+            if (asset.mediaSubtypes == PHAssetMediaSubtypePhotoLive || asset.mediaSubtypes == 10) return DBAssetMediaTypeLivePhoto;
+            
+            return DBAssetMediaTypeImage;
+        default:
+            return DBAssetMediaTypeUnKnow;
+    }
+}
+
+
 - (NSString *)getCollectionTitle:(PHAssetCollection *)collection
 {
     return collection.localizedTitle;
+}
+
+#pragma makr - UIViewControllerPreviewingDelegate
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:location];
+    if (!indexPath) {
+        return nil;
+    }
+    
+    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+//    if ([cell isKindOfClass:[ZLTakePhotoCell class]]) {
+//        return nil;
+//    }
+    //设置突出区域
+    previewingContext.sourceRect = [self.collectionView cellForItemAtIndexPath:indexPath].frame;
+    DBCustomLibraryForceTouchViewController *vc = [DBCustomLibraryForceTouchViewController new];
+    vc.model = self.model.models[indexPath.item];
+    vc.preferredContentSize = [self getSize:vc.model];
+    return vc;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
+{
+    DBImageModel *model = [(DBCustomLibraryForceTouchViewController *)viewControllerToCommit model];
+    
+    DBCustomLibraryPreviewViewController *vc = [[DBCustomLibraryPreviewViewController alloc] init];
+    if (vc) {
+        [self showViewController:vc sender:self];
+    }
+
+}
+
+- (CGSize)getSize:(DBImageModel *)model
+{
+    CGFloat w = MIN(model.asset.pixelWidth, kMainBoundsWidth);
+    CGFloat h = w * model.asset.pixelHeight / model.asset.pixelWidth;
+    if (isnan(h)) return CGSizeZero;
+    
+    if (h > kMainBoundsHeight || isnan(h)) {
+        h = kMainBoundsHeight;
+        w = h * model.asset.pixelWidth / model.asset.pixelHeight;
+    }
+    
+    return CGSizeMake(w, h);
 }
 
 #pragma mark - CollectionDelegate
@@ -76,14 +162,14 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DBCustomLibraryImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:libraryCellID forIndexPath:indexPath];
-    
+    cell.model = self.model.models[indexPath.item];
     return cell;
 }
 
 #pragma mark - Action
 - (void)cancleClick
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Getter
@@ -111,15 +197,21 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
         _collectionView = ({
             UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
             NSInteger columnCount = 4;
-            layout.itemSize = kSize((kMainBoundsWidth - 1.5 * (columnCount + 2)) / columnCount, (kMainBoundsWidth - 1.5 * (columnCount + 2)) / columnCount);
+            layout.itemSize = kSize((kMainBoundsWidth - 6 - 1.5 * (columnCount - 1)) / columnCount, (kMainBoundsWidth - 6 - 1.5 * (columnCount - 1)) / columnCount);
             layout.minimumInteritemSpacing = 1.5;
             layout.minimumLineSpacing = 1.5;
+            layout.scrollDirection = UICollectionViewScrollDirectionVertical;
             layout.sectionInset = UIEdgeInsetsMake(3, 3, 3, 3);
             UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:kRect(0, self.navigationBar.bottom, kMainBoundsWidth, kMainBoundsHeight - self.navigationBar.bottom) collectionViewLayout:layout];
             collectionView.backgroundColor = [UIColor whiteColor];
             collectionView.dataSource = self;
             collectionView.delegate = self;
             [collectionView registerClass:NSClassFromString(@"DBCustomLibraryImageCell") forCellWithReuseIdentifier:libraryCellID];
+            if (@available(iOS 9.0, *)) {
+                [self registerForPreviewingWithDelegate:self sourceView:collectionView];
+            } else {
+            }
+            
             collectionView;
         });
     }

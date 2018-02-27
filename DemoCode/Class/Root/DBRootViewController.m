@@ -10,6 +10,8 @@
 
 //vc
 #import "DBCustomLibraryViewController.h"
+#import "DBCustomListLibraryViewController.h"
+#import "DBCustomLibraryNavViewController.h"
 
 //V
 #import "YYFPSLabel.h"
@@ -46,8 +48,14 @@
 #pragma mark - action
 - (void)chooseImage
 {
+    DBCustomListLibraryViewController *list = [DBCustomListLibraryViewController new];
+    
     DBCustomLibraryViewController *library = [[DBCustomLibraryViewController alloc] init];
-    [self.navigationController pushViewController:library animated:YES];
+    DBCustomLibraryNavViewController *nav = [[DBCustomLibraryNavViewController alloc] initWithRootViewController:list];
+    [nav pushViewController:library animated:NO];
+
+//    [self showDetailViewController:nav sender:nil];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

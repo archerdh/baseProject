@@ -54,6 +54,11 @@
 		315085392044141900AF1970 /* zl_rotateimage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 315085362044141800AF1970 /* zl_rotateimage@2x.png */; };
 		3150853A2044141900AF1970 /* zl_rotateimage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 315085372044141800AF1970 /* zl_rotateimage@3x.png */; };
 		3150853B2044141900AF1970 /* zl_rotateimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 315085382044141900AF1970 /* zl_rotateimage.png */; };
+		3150854020450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150853F20450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m */; };
+		3150854320452BF400AF1970 /* DBCustomLibraryPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150854220452BF400AF1970 /* DBCustomLibraryPreviewViewController.m */; };
+		3150854620454C3900AF1970 /* DBCustomLibraryNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150854520454C3900AF1970 /* DBCustomLibraryNavViewController.m */; };
+		31508549204554C700AF1970 /* DBCustomListLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31508548204554C700AF1970 /* DBCustomListLibraryViewController.m */; };
+		3150854E20455E2700AF1970 /* DBCustomLibraryTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150854D20455E2700AF1970 /* DBCustomLibraryTabCell.m */; };
 		3162D666202D742900DAB174 /* DBNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3162D665202D742900DAB174 /* DBNavigationBar.m */; };
 		3162D66D202D8B0800DAB174 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3162D66B202D8B0800DAB174 /* YYFPSLabel.m */; };
 		319A0DD11F6123A90088547F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0DC91F6123A90088547F /* AppDelegate.m */; };
@@ -198,6 +203,16 @@
 		315085362044141800AF1970 /* zl_rotateimage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl_rotateimage@2x.png"; sourceTree = "<group>"; };
 		315085372044141800AF1970 /* zl_rotateimage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl_rotateimage@3x.png"; sourceTree = "<group>"; };
 		315085382044141900AF1970 /* zl_rotateimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zl_rotateimage.png; sourceTree = "<group>"; };
+		3150853E20450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryForceTouchViewController.h; sourceTree = "<group>"; };
+		3150853F20450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomLibraryForceTouchViewController.m; sourceTree = "<group>"; };
+		3150854120452BF400AF1970 /* DBCustomLibraryPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryPreviewViewController.h; sourceTree = "<group>"; };
+		3150854220452BF400AF1970 /* DBCustomLibraryPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomLibraryPreviewViewController.m; sourceTree = "<group>"; };
+		3150854420454C3900AF1970 /* DBCustomLibraryNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryNavViewController.h; sourceTree = "<group>"; };
+		3150854520454C3900AF1970 /* DBCustomLibraryNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomLibraryNavViewController.m; sourceTree = "<group>"; };
+		31508547204554C700AF1970 /* DBCustomListLibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomListLibraryViewController.h; sourceTree = "<group>"; };
+		31508548204554C700AF1970 /* DBCustomListLibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomListLibraryViewController.m; sourceTree = "<group>"; };
+		3150854C20455E2700AF1970 /* DBCustomLibraryTabCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryTabCell.h; sourceTree = "<group>"; };
+		3150854D20455E2700AF1970 /* DBCustomLibraryTabCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomLibraryTabCell.m; sourceTree = "<group>"; };
 		3162D664202D742900DAB174 /* DBNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBNavigationBar.h; sourceTree = "<group>"; };
 		3162D665202D742900DAB174 /* DBNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBNavigationBar.m; sourceTree = "<group>"; };
 		3162D66B202D8B0800DAB174 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
@@ -412,6 +427,8 @@
 			children = (
 				315084DD2043F69100AF1970 /* DBCustomLibraryImageCell.h */,
 				315084DE2043F69100AF1970 /* DBCustomLibraryImageCell.m */,
+				3150854C20455E2700AF1970 /* DBCustomLibraryTabCell.h */,
+				3150854D20455E2700AF1970 /* DBCustomLibraryTabCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -966,6 +983,14 @@
 			children = (
 				31E7BEE4202C59E300CD5BDF /* DBCustomLibraryViewController.h */,
 				31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */,
+				3150853E20450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.h */,
+				3150853F20450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m */,
+				3150854120452BF400AF1970 /* DBCustomLibraryPreviewViewController.h */,
+				3150854220452BF400AF1970 /* DBCustomLibraryPreviewViewController.m */,
+				3150854420454C3900AF1970 /* DBCustomLibraryNavViewController.h */,
+				3150854520454C3900AF1970 /* DBCustomLibraryNavViewController.m */,
+				31508547204554C700AF1970 /* DBCustomListLibraryViewController.h */,
+				31508548204554C700AF1970 /* DBCustomListLibraryViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1135,6 +1160,7 @@
 				319A0F051F6156800088547F /* UIButton+WebCache.m in Sources */,
 				319A0E751F612B710088547F /* BaseRequest.m in Sources */,
 				319A0DDA1F6123EE0088547F /* DBConst.m in Sources */,
+				31508549204554C700AF1970 /* DBCustomListLibraryViewController.m in Sources */,
 				319A0E411F6128780088547F /* GTMBase64.m in Sources */,
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
 				319A0EA21F612DEB0088547F /* BaseTabBarController.m in Sources */,
@@ -1142,6 +1168,7 @@
 				3162D66D202D8B0800DAB174 /* YYFPSLabel.m in Sources */,
 				319A0F451F6157760088547F /* MJRefreshBackStateFooter.m in Sources */,
 				319A0F541F61586F0088547F /* NullSafe.m in Sources */,
+				3150854E20455E2700AF1970 /* DBCustomLibraryTabCell.m in Sources */,
 				319A0EAD1F612DEB0088547F /* BaseLineCell.m in Sources */,
 				319A0F481F6157760088547F /* MJRefreshStateHeader.m in Sources */,
 				319A0EC01F6135820088547F /* AFHTTPSessionManager.m in Sources */,
@@ -1156,10 +1183,12 @@
 				319A0E601F612A810088547F /* UIView+Additional.m in Sources */,
 				319A0EAF1F612DEB0088547F /* BaseLineView.m in Sources */,
 				319A0F4D1F6157760088547F /* UIScrollView+MJRefresh.m in Sources */,
+				3150854620454C3900AF1970 /* DBCustomLibraryNavViewController.m in Sources */,
 				319A0EC51F6135820088547F /* AFURLSessionManager.m in Sources */,
 				319A0E5E1F612A810088547F /* UIImage+Additional.m in Sources */,
 				319A0F3D1F6157760088547F /* MJRefreshComponent.m in Sources */,
 				319A0EDB1F6155A80088547F /* Jastor.m in Sources */,
+				3150854020450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m in Sources */,
 				315084DF2043F69100AF1970 /* DBCustomLibraryImageCell.m in Sources */,
 				319A0EC11F6135820088547F /* AFNetworkReachabilityManager.m in Sources */,
 				319A0F001F6156800088547F /* SDWebImageDecoder.m in Sources */,
@@ -1170,6 +1199,7 @@
 				319A0E461F6128780088547F /* NSData+QBase64.m in Sources */,
 				319A0F411F6157760088547F /* MJRefreshAutoNormalFooter.m in Sources */,
 				319A0F071F6156800088547F /* UIImage+MultiFormat.m in Sources */,
+				3150854320452BF400AF1970 /* DBCustomLibraryPreviewViewController.m in Sources */,
 				319A0E791F612B710088547F /* PPHTTPResponseSerializer.m in Sources */,
 				319A0E481F6128780088547F /* Reachability.m in Sources */,
 				319A0EFE1F6156800088547F /* SDImageCache.m in Sources */,
