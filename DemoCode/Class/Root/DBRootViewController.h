@@ -10,4 +10,6 @@
 
 @interface DBRootViewController : BaseViewController
 
+- (void)chooseImage;
+
 @end

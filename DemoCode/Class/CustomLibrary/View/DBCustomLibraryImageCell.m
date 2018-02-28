@@ -117,7 +117,21 @@
 #pragma mark - Action
 - (void)btnSelectClick:(UIButton *)btn
 {
+    [btn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
+}
+
+static inline CAKeyframeAnimation * GetBtnStatusChangedAnimation() {
+    CAKeyframeAnimation *animate = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     
+    animate.duration = 0.3;
+    animate.removedOnCompletion = YES;
+    animate.fillMode = kCAFillModeForwards;
+    
+    animate.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.7, 0.7, 1.0)],
+                       [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)],
+                       [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.8, 0.8, 1.0)],
+                       [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]];
+    return animate;
 }
 
 #pragma mark - Getter

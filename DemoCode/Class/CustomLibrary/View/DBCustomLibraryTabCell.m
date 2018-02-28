@@ -65,7 +65,7 @@
      PHImageErrorKey：如果没有图像，字典内的错误信息
      */
     WS(weakSelf);
-    [[PHCachingImageManager defaultManager] requestImageForAsset:model.headImageAsset targetSize:kSize(self.contentView.height * 2.5, self.contentView.height * 2.5) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable image, NSDictionary * _Nullable info) {
+    [[PHCachingImageManager defaultManager] requestImageForAsset:model.headImageAsset targetSize:kSize(65 * 2.5, 65 * 2.5) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable image, NSDictionary * _Nullable info) {
         BOOL downloadFinined = ![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey];
         //不要该判断，即如果该图片在iCloud上时候，会先显示一张模糊的预览图，待加载完毕后会显示高清图
         // && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue]
@@ -83,8 +83,8 @@
     if (!_headImageView) {
         _headImageView = ({
             UIImageView *view = [[UIImageView alloc] initWithFrame:kRect(12, 0, 63, 63)];
-            view.centerY = self.contentView.height / 2;
-            view.contentMode = UIViewContentModeScaleAspectFit;
+            view.centerY = 65 / 2;
+            view.contentMode = UIViewContentModeScaleAspectFill;
             view.clipsToBounds = YES;
             view;
         });

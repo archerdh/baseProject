@@ -28,6 +28,10 @@ CGFloat KTC_BOTTOM_MARGIN = 0.0f;// iPhoneX底部不可编辑高度
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //touch
+    [self initTouchWith:application];
+    
     // 设置布局辅助
     KTC_SCREEN_RATION = kMainBoundsWidth/375.0;
     if (@available(iOS 11.0, *)) {
@@ -75,5 +79,30 @@ CGFloat KTC_BOTTOM_MARGIN = 0.0f;// iPhoneX底部不可编辑高度
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - touch相关
+- (void)initTouchWith:(UIApplication *)application
+{
+    //Touch是从iOS9.0后开始使用
+    if (@available(iOS 9.0, *)) {
+        UIApplicationShortcutIcon *iconFitness = [UIApplicationShortcutIcon iconWithTemplateImageName:@"takePhoto"];
+        //菜单文字
+        UIMutableApplicationShortcutItem *itemFitness = [[UIMutableApplicationShortcutItem alloc] initWithType:@"1" localizedTitle:@"查看相册"];
+        //绑定信息到指定菜单
+        itemFitness.icon = iconFitness;
+        //绑定到App icon
+        application.shortcutItems = @[itemFitness];
+    } else {
+    }
+}
+
+#pragma mark - touch响应事件
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+    if (shortcutItem.type.integerValue == 1) {
+        BaseNavigationController *nav = (BaseNavigationController *)self.window.rootViewController;
+        DBRootViewController *root = nav.childViewControllers.firstObject;
+        [root chooseImage];
+    }
+}
 
 @end

@@ -183,7 +183,8 @@ static NSString *libraryTabCellID = @"DBCustomLibraryTabCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DBCustomLibraryTabCell *cell = [tableView dequeueReusableCellWithIdentifier:libraryTabCellID];
     DBImageListModel *albumModel = self.arrayDataSources[indexPath.row];
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model = albumModel;
     
     return cell;
