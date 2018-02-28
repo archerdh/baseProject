@@ -16,6 +16,9 @@
 //V
 #import "YYFPSLabel.h"
 
+//M
+#import "DBLibraryConfig.h"
+
 @interface DBRootViewController ()
 
 @end
@@ -49,9 +52,11 @@
 - (void)chooseImage
 {
     DBCustomListLibraryViewController *list = [DBCustomListLibraryViewController new];
-    
+    DBLibraryConfig *config = [DBLibraryConfig defaultPhotoConfiguration];
+    config.sortAscending = 0;
     DBCustomLibraryViewController *library = [[DBCustomLibraryViewController alloc] init];
     DBCustomLibraryNavViewController *nav = [[DBCustomLibraryNavViewController alloc] initWithRootViewController:list];
+    nav.config = config;
     [nav pushViewController:library animated:NO];
 
 //    [self showDetailViewController:nav sender:nil];

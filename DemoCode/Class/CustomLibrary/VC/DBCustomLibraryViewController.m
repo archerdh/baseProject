@@ -14,6 +14,7 @@
 
 //M
 #import "DBImageListModel.h"
+#import "DBCustomLibraryManager.h"
 
 //VC
 #import "DBCustomLibraryForceTouchViewController.h"
@@ -36,73 +37,14 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.model = [self getImageSource];
+    DBCustomLibraryNavViewController *nav = (DBCustomLibraryNavViewController *)self.navigationController;
+    
+    self.model = [DBCustomLibraryManager getCameraRollAlbumList:nav.config];
 
     [self addNavigationBar];
     [self setNavTitle:self.model.title];
     self.navigationBar.rightBarItems = @[self.cancleBtn];
     [self.view addSubview:self.collectionView];
-}
-
-- (DBImageListModel *)getImageSource
-{
-    PHFetchOptions *option = [[PHFetchOptions alloc] init];
-    option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:0]];
-    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-    __block DBImageListModel *model;
-    WS(weakSelf);
-    [smartAlbums enumerateObjectsUsingBlock:^(PHAssetCollection *  _Nonnull collection, NSUInteger idx, BOOL * _Nonnull stop) {
-        //获取相册内asset result
-        if (collection.assetCollectionSubtype == 209) {
-            PHFetchResult<PHAsset *> *result = [PHAsset fetchAssetsInAssetCollection:collection options:option];
-            model = [[DBImageListModel alloc] init];
-            model.title = [self getCollectionTitle:collection];
-            model.count = result.count;
-            model.result = result;
-            model.headImageAsset = result.lastObject;
-            model.models = [weakSelf getPhotoInResult:result];
-        }
-    }];
-    return model;
-}
-
-#pragma mark - Others
-- (NSArray<DBImageModel *> *)getPhotoInResult:(PHFetchResult<PHAsset *> *)result
-{
-    NSMutableArray<DBImageModel *> *arrModel = [NSMutableArray array];
-    __block NSInteger count = 1;
-    [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        DBAssetMediaType type = [self transformAssetType:obj];
-
-        [arrModel addObject:[DBImageModel modelWithAsset:obj type:type duration:0]];
-        count++;
-    }];
-    return arrModel;
-}
-
-//系统mediatype 转换为 自定义type
-- (DBAssetMediaType)transformAssetType:(PHAsset *)asset
-{
-    switch (asset.mediaType) {
-//        case PHAssetMediaTypeAudio:
-//            return DBAssetMediaType;
-        case PHAssetMediaTypeVideo:
-            return DBAssetMediaTypeVideo;
-        case PHAssetMediaTypeImage:
-            if ([[asset valueForKey:@"filename"] hasSuffix:@"GIF"])return DBAssetMediaTypeGif;
-            
-            if (asset.mediaSubtypes == PHAssetMediaSubtypePhotoLive || asset.mediaSubtypes == 10) return DBAssetMediaTypeLivePhoto;
-            
-            return DBAssetMediaTypeImage;
-        default:
-            return DBAssetMediaTypeUnKnow;
-    }
-}
-
-
-- (NSString *)getCollectionTitle:(PHAssetCollection *)collection
-{
-    return collection.localizedTitle;
 }
 
 #pragma makr - UIViewControllerPreviewingDelegate
@@ -127,7 +69,7 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
 
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
 {
-    DBImageModel *model = [(DBCustomLibraryForceTouchViewController *)viewControllerToCommit model];
+//    DBImageModel *model = [(DBCustomLibraryForceTouchViewController *)viewControllerToCommit model];
     
     DBCustomLibraryPreviewViewController *vc = [[DBCustomLibraryPreviewViewController alloc] init];
     if (vc) {

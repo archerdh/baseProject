@@ -17,6 +17,7 @@
 
 - (void)dealloc
 {
+    //取消sd进行中的requ
     [[SDWebImageManager sharedManager] cancelAll];
 }
 

@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseNavigationController.h"
+#import "DBLibraryConfig.h"
 @class DBImageModel;
 @interface DBCustomLibraryNavViewController : BaseNavigationController
 
-/**
- 是否选择了原图
- */
-@property (nonatomic, assign) BOOL isSelectOriginalPhoto;
-
+@property (nonatomic, strong) DBLibraryConfig *config;
 @property (nonatomic, copy) NSMutableArray<DBImageModel *> *arrSelectedModels;
-
 
 @end
