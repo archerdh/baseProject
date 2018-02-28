@@ -13,6 +13,7 @@
 
 //VC
 #import "DBCustomLibraryNavViewController.h"
+#import "DBCustomLibraryViewController.h"
 
 //M
 #import "DBImageListModel.h"
@@ -81,8 +82,10 @@ static NSString *libraryTabCellID = @"DBCustomLibraryTabCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    [self pushThumbnailVCWithIndex:indexPath.row animated:YES];
+    DBImageListModel *albumModel = self.arrayDataSources[indexPath.row];
+    DBCustomLibraryViewController *vc = [DBCustomLibraryViewController new];
+    vc.model = albumModel;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - getter

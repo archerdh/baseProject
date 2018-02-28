@@ -25,7 +25,6 @@
 
 @property (strong, nonatomic) UIButton *cancleBtn;
 @property (strong, nonatomic) UICollectionView *collectionView;
-@property (strong, nonatomic) DBImageListModel *model;
 
 @end
 
@@ -33,14 +32,20 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
 
 @implementation DBCustomLibraryViewController
 
+- (void)dealloc
+{
+    AULog(@"%s", __func__);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    DBCustomLibraryNavViewController *nav = (DBCustomLibraryNavViewController *)self.navigationController;
+    if (!self.model) {
+        DBCustomLibraryNavViewController *nav = (DBCustomLibraryNavViewController *)self.navigationController;
+        self.model = [DBCustomLibraryManager getCameraRollAlbumList:nav.config];
+    }
     
-    self.model = [DBCustomLibraryManager getCameraRollAlbumList:nav.config];
-
     [self addNavigationBar];
     [self setNavTitle:self.model.title];
     self.navigationBar.rightBarItems = @[self.cancleBtn];
@@ -95,9 +100,6 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
 #pragma mark - CollectionDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.allowTakePhoto) {
-        return self.model.count + 1;
-    }
     return self.model.count;
 }
 

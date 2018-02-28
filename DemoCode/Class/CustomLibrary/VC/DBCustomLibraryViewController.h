@@ -7,13 +7,9 @@
 //  自定义相册VC
 
 #import "BaseViewController.h"
-
+@class DBImageListModel;
 @interface DBCustomLibraryViewController : BaseViewController
 
-//是否允许显示拍照
-@property (assign, nonatomic) BOOL allowTakePhoto;
-
-//是否允许Force Touch功能 默认YES
-@property (assign, nonatomic) BOOL allowForceTouch;
+@property (strong, nonatomic) DBImageListModel *model;
 
 @end
