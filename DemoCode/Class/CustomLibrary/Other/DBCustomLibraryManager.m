@@ -29,7 +29,7 @@
         if (collection.assetCollectionSubtype == 209) {
             PHFetchResult<PHAsset *> *result = [PHAsset fetchAssetsInAssetCollection:collection options:option];
             NSString *title = [weakSelf getCollectionTitle:collection];
-            model = [weakSelf getAlbumModeWithTitle:title result:result];
+            model = [weakSelf getAlbumModeWithTitle:title result:result Sort:config.sortAscending];
         }
     }];
     return model;
@@ -109,10 +109,10 @@
                 NSString *title = [weakSelf getCollectionTitle:collection];
                 
                 if (collection.assetCollectionSubtype == 209) {
-                    DBImageListModel *m = [weakSelf getAlbumModeWithTitle:title result:result];
+                    DBImageListModel *m = [weakSelf getAlbumModeWithTitle:title result:result Sort:config.sortAscending];
                     [arrAlbum insertObject:m atIndex:0];
                 } else {
-                    [arrAlbum addObject:[weakSelf getAlbumModeWithTitle:title result:result]];
+                    [arrAlbum addObject:[weakSelf getAlbumModeWithTitle:title result:result Sort:config.sortAscending]];
                 }
             }];
         }
@@ -123,13 +123,13 @@
 
 #pragma mark - Other
 //获取相册列表model
-+ (DBImageListModel *)getAlbumModeWithTitle:(NSString *)title result:(PHFetchResult<PHAsset *> *)result
++ (DBImageListModel *)getAlbumModeWithTitle:(NSString *)title result:(PHFetchResult<PHAsset *> *)result Sort:(BOOL)isSort
 {
     DBImageListModel *model = [[DBImageListModel alloc] init];
     model.title = title;
     model.count = result.count;
     model.result = result;
-    model.headImageAsset = result.lastObject;
+    model.headImageAsset = isSort ? result.lastObject : result.firstObject;
     
     //为了获取所有asset gif设置为yes
     model.models = [self getPhotoInResult:result];

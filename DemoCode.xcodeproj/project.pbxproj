@@ -150,6 +150,7 @@
 		319A0F4E1F6157760088547F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F3A1F6157760088547F /* UIView+MJExtension.m */; };
 		319A0F511F6157A70088547F /* UIScrollView+AURefreshMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F501F6157A70088547F /* UIScrollView+AURefreshMethods.m */; };
 		319A0F541F61586F0088547F /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F531F61586F0088547F /* NullSafe.m */; };
+		31B9D58D20480E89009C21AF /* DBCustomLibraryCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D58C20480E89009C21AF /* DBCustomLibraryCameraCell.m */; };
 		31E7BEE1202C598300CD5BDF /* DBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE0202C598300CD5BDF /* DBRootViewController.m */; };
 		31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */; };
 /* End PBXBuildFile section */
@@ -402,6 +403,8 @@
 		319A0F4F1F6157A70088547F /* UIScrollView+AURefreshMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AURefreshMethods.h"; sourceTree = "<group>"; };
 		319A0F501F6157A70088547F /* UIScrollView+AURefreshMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AURefreshMethods.m"; sourceTree = "<group>"; };
 		319A0F531F61586F0088547F /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		31B9D58B20480E89009C21AF /* DBCustomLibraryCameraCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryCameraCell.h; sourceTree = "<group>"; };
+		31B9D58C20480E89009C21AF /* DBCustomLibraryCameraCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomLibraryCameraCell.m; sourceTree = "<group>"; };
 		31E7BEDF202C598300CD5BDF /* DBRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRootViewController.h; sourceTree = "<group>"; };
 		31E7BEE0202C598300CD5BDF /* DBRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRootViewController.m; sourceTree = "<group>"; };
 		31E7BEE4202C59E300CD5BDF /* DBCustomLibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryViewController.h; sourceTree = "<group>"; };
@@ -433,6 +436,8 @@
 			children = (
 				315084DD2043F69100AF1970 /* DBCustomLibraryImageCell.h */,
 				315084DE2043F69100AF1970 /* DBCustomLibraryImageCell.m */,
+				31B9D58B20480E89009C21AF /* DBCustomLibraryCameraCell.h */,
+				31B9D58C20480E89009C21AF /* DBCustomLibraryCameraCell.m */,
 				3150854C20455E2700AF1970 /* DBCustomLibraryTabCell.h */,
 				3150854D20455E2700AF1970 /* DBCustomLibraryTabCell.m */,
 			);
@@ -1180,6 +1185,7 @@
 				319A0DDA1F6123EE0088547F /* DBConst.m in Sources */,
 				31508549204554C700AF1970 /* DBCustomListLibraryViewController.m in Sources */,
 				319A0E411F6128780088547F /* GTMBase64.m in Sources */,
+				31B9D58D20480E89009C21AF /* DBCustomLibraryCameraCell.m in Sources */,
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
 				319A0EA21F612DEB0088547F /* BaseTabBarController.m in Sources */,
 				319A0F4C1F6157760088547F /* UIScrollView+MJExtension.m in Sources */,
