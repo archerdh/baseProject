@@ -151,6 +151,8 @@
 		319A0F511F6157A70088547F /* UIScrollView+AURefreshMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F501F6157A70088547F /* UIScrollView+AURefreshMethods.m */; };
 		319A0F541F61586F0088547F /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 319A0F531F61586F0088547F /* NullSafe.m */; };
 		31B9D58D20480E89009C21AF /* DBCustomLibraryCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D58C20480E89009C21AF /* DBCustomLibraryCameraCell.m */; };
+		31B9D599204940B0009C21AF /* DBFaceIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D598204940B0009C21AF /* DBFaceIDViewController.m */; };
+		31B9D59D204945C0009C21AF /* DBRootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D59C204945C0009C21AF /* DBRootModel.m */; };
 		31E7BEE1202C598300CD5BDF /* DBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE0202C598300CD5BDF /* DBRootViewController.m */; };
 		31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */; };
 /* End PBXBuildFile section */
@@ -405,6 +407,10 @@
 		319A0F531F61586F0088547F /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		31B9D58B20480E89009C21AF /* DBCustomLibraryCameraCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryCameraCell.h; sourceTree = "<group>"; };
 		31B9D58C20480E89009C21AF /* DBCustomLibraryCameraCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCustomLibraryCameraCell.m; sourceTree = "<group>"; };
+		31B9D597204940B0009C21AF /* DBFaceIDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBFaceIDViewController.h; sourceTree = "<group>"; };
+		31B9D598204940B0009C21AF /* DBFaceIDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBFaceIDViewController.m; sourceTree = "<group>"; };
+		31B9D59B204945C0009C21AF /* DBRootModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRootModel.h; sourceTree = "<group>"; };
+		31B9D59C204945C0009C21AF /* DBRootModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRootModel.m; sourceTree = "<group>"; };
 		31E7BEDF202C598300CD5BDF /* DBRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRootViewController.h; sourceTree = "<group>"; };
 		31E7BEE0202C598300CD5BDF /* DBRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRootViewController.m; sourceTree = "<group>"; };
 		31E7BEE4202C59E300CD5BDF /* DBCustomLibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryViewController.h; sourceTree = "<group>"; };
@@ -614,6 +620,7 @@
 		319A0DE11F6126AA0088547F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				31B9D59620494097009C21AF /* FaceID */,
 				31E7BEE2202C59C400CD5BDF /* CustomLibrary */,
 				31E7BEDE202C596300CD5BDF /* Root */,
 			);
@@ -980,9 +987,28 @@
 			path = NullSafe;
 			sourceTree = "<group>";
 		};
+		31B9D59620494097009C21AF /* FaceID */ = {
+			isa = PBXGroup;
+			children = (
+				31B9D597204940B0009C21AF /* DBFaceIDViewController.h */,
+				31B9D598204940B0009C21AF /* DBFaceIDViewController.m */,
+			);
+			path = FaceID;
+			sourceTree = "<group>";
+		};
+		31B9D59A20494585009C21AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31B9D59B204945C0009C21AF /* DBRootModel.h */,
+				31B9D59C204945C0009C21AF /* DBRootModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		31E7BEDE202C596300CD5BDF /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				31B9D59A20494585009C21AF /* Model */,
 				31E7BEDF202C598300CD5BDF /* DBRootViewController.h */,
 				31E7BEE0202C598300CD5BDF /* DBRootViewController.m */,
 			);
@@ -1191,6 +1217,7 @@
 				319A0F4C1F6157760088547F /* UIScrollView+MJExtension.m in Sources */,
 				3162D66D202D8B0800DAB174 /* YYFPSLabel.m in Sources */,
 				319A0F451F6157760088547F /* MJRefreshBackStateFooter.m in Sources */,
+				31B9D599204940B0009C21AF /* DBFaceIDViewController.m in Sources */,
 				319A0F541F61586F0088547F /* NullSafe.m in Sources */,
 				3150854E20455E2700AF1970 /* DBCustomLibraryTabCell.m in Sources */,
 				319A0EAD1F612DEB0088547F /* BaseLineCell.m in Sources */,
@@ -1222,6 +1249,7 @@
 				319A0F0A1F6156800088547F /* UIView+WebCacheOperation.m in Sources */,
 				319A0F401F6157760088547F /* MJRefreshAutoGifFooter.m in Sources */,
 				319A0EAC1F612DEB0088547F /* BaseLineButton.m in Sources */,
+				31B9D59D204945C0009C21AF /* DBRootModel.m in Sources */,
 				319A0E461F6128780088547F /* NSData+QBase64.m in Sources */,
 				319A0F411F6157760088547F /* MJRefreshAutoNormalFooter.m in Sources */,
 				319A0F071F6156800088547F /* UIImage+MultiFormat.m in Sources */,

@@ -12,6 +12,7 @@
 #import "DBCustomLibraryViewController.h"
 #import "DBCustomListLibraryViewController.h"
 #import "DBCustomLibraryNavViewController.h"
+#import "DBFaceIDViewController.h"
 
 //V
 #import "YYFPSLabel.h"
@@ -71,7 +72,9 @@ static NSString *rootCellID = @"rootCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self chooseImage];
+//    [self chooseImage];
+    DBFaceIDViewController *vc = [DBFaceIDViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - action
