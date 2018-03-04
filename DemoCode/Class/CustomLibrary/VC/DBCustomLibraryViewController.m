@@ -11,6 +11,7 @@
 
 //V
 #import "DBCustomLibraryImageCell.h"
+#import "DBCustomLibraryCameraCell.h"
 
 //M
 #import "DBImageListModel.h"
@@ -29,6 +30,7 @@
 @end
 
 static NSString *libraryCellID = @"DBCustomLibraryImageCell";
+static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
 
 @implementation DBCustomLibraryViewController
 
@@ -100,13 +102,26 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
 #pragma mark - CollectionDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if (self.model.isCamera) {
+        return self.model.count + 1;
+    }
     return self.model.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    DBCustomLibraryNavViewController *nav = (DBCustomLibraryNavViewController *)self.navigationController;
+    DBLibraryConfig *config = nav.config;
+    if (self.model.isCamera && ((indexPath.item == 0 && !config.sortAscending) || (indexPath.item == self.model.count && config.sortAscending))) {
+        DBCustomLibraryCameraCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:libraryCarmerID forIndexPath:indexPath];
+        if (config.showCaptureImageOnTakePhotoBtn) {
+            [cell startCapture];
+        }
+        return cell;
+    }
+    NSInteger index = self.model.isCamera ? (!config.sortAscending ? indexPath.item - 1 : indexPath.item) : indexPath.item;
     DBCustomLibraryImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:libraryCellID forIndexPath:indexPath];
-    cell.model = self.model.models[indexPath.item];
+    cell.model = self.model.models[index];
     return cell;
 }
 
@@ -151,6 +166,7 @@ static NSString *libraryCellID = @"DBCustomLibraryImageCell";
             collectionView.dataSource = self;
             collectionView.delegate = self;
             [collectionView registerClass:NSClassFromString(@"DBCustomLibraryImageCell") forCellWithReuseIdentifier:libraryCellID];
+            [collectionView registerClass:NSClassFromString(@"DBCustomLibraryCameraCell") forCellWithReuseIdentifier:libraryCarmerID];
             if (@available(iOS 9.0, *)) {
                 [self registerForPreviewingWithDelegate:self sourceView:collectionView];
             } else {

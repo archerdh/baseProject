@@ -10,4 +10,8 @@
 
 @interface DBCustomLibraryCameraCell : UICollectionViewCell
 
+- (void)startCapture;
+
+- (void)restartCapture;
+
 @end

@@ -19,6 +19,7 @@
 
 //M
 #import "DBLibraryConfig.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface DBRootViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -47,6 +48,40 @@ static NSString *rootCellID = @"rootCellID";
     [self.view addSubview:self.tableView];
 }
 
+#pragma mark - 测试通知
+- (void)initNoti
+{
+    // 1.创建通知内容
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    content.title = @"徐不同测试通知";
+    content.subtitle = @"测试通知";
+    content.body = @"来自徐不同的简书";
+    content.badge = @1;
+    NSError *error = nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"playVideo@2x" ofType:@"png"];
+    // 2.设置通知附件内容
+    UNNotificationAttachment *att = [UNNotificationAttachment attachmentWithIdentifier:@"att1" URL:[NSURL fileURLWithPath:path] options:nil error:&error];
+    if (error) {
+        NSLog(@"attachment error %@", error);
+    }
+    content.attachments = @[att];
+    content.launchImageName = @"lock";
+    // 2.设置声音
+    UNNotificationSound *sound = [UNNotificationSound defaultSound];
+    content.sound = sound;
+    
+    // 3.触发模式
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
+    
+    // 4.设置UNNotificationRequest
+    NSString *requestIdentifer = @"TestRequest";
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifer content:content trigger:trigger];
+    
+    //5.把通知加到UNUserNotificationCenter, 到指定触发点会被触发
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+    }];
+}
+
 #pragma mark - tableDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -72,9 +107,10 @@ static NSString *rootCellID = @"rootCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [self chooseImage];
-    DBFaceIDViewController *vc = [DBFaceIDViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self chooseImage];
+    //face
+//    DBFaceIDViewController *vc = [DBFaceIDViewController new];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - action

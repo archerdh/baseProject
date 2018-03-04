@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275E68A3204AFC1000D479C2 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68A2204AFC1000D479C2 /* NotificationService.m */; };
+		275E68A7204AFC1000D479C2 /* DemoCodeNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		315084DA2043D63000AF1970 /* DBImageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 315084D92043D63000AF1970 /* DBImageListModel.m */; };
 		315084DF2043F69100AF1970 /* DBCustomLibraryImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 315084DE2043F69100AF1970 /* DBCustomLibraryImageCell.m */; };
 		315084E2204406F400AF1970 /* UIButton+DBEnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 315084E1204406F400AF1970 /* UIButton+DBEnlargeTouchArea.m */; };
@@ -157,7 +159,35 @@
 		31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		275E68A5204AFC1000D479C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 319A0DA31F6122590088547F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275E689E204AFC1000D479C2;
+			remoteInfo = DemoCodeNotification;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		275E68AB204AFC1000D479C2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				275E68A7204AFC1000D479C2 /* DemoCodeNotification.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DemoCodeNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		275E68A1204AFC1000D479C2 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		275E68A2204AFC1000D479C2 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		275E68A4204AFC1000D479C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		315084D82043D63000AF1970 /* DBImageListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBImageListModel.h; sourceTree = "<group>"; };
 		315084D92043D63000AF1970 /* DBImageListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBImageListModel.m; sourceTree = "<group>"; };
 		315084DD2043F69100AF1970 /* DBCustomLibraryImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryImageCell.h; sourceTree = "<group>"; };
@@ -418,6 +448,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		275E689C204AFC1000D479C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		319A0DA81F6122590088547F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,6 +465,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		275E68A0204AFC1000D479C2 /* DemoCodeNotification */ = {
+			isa = PBXGroup;
+			children = (
+				275E68A1204AFC1000D479C2 /* NotificationService.h */,
+				275E68A2204AFC1000D479C2 /* NotificationService.m */,
+				275E68A4204AFC1000D479C2 /* Info.plist */,
+			);
+			path = DemoCodeNotification;
+			sourceTree = "<group>";
+		};
 		315084D72043D61500AF1970 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				319A0DAD1F6122590088547F /* DemoCode */,
+				275E68A0204AFC1000D479C2 /* DemoCodeNotification */,
 				319A0DAC1F6122590088547F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -533,6 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				319A0DAB1F6122590088547F /* DemoCode.app */,
+				275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1047,6 +1096,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		275E689E204AFC1000D479C2 /* DemoCodeNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275E68A8204AFC1000D479C2 /* Build configuration list for PBXNativeTarget "DemoCodeNotification" */;
+			buildPhases = (
+				275E689B204AFC1000D479C2 /* Sources */,
+				275E689C204AFC1000D479C2 /* Frameworks */,
+				275E689D204AFC1000D479C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoCodeNotification;
+			productName = DemoCodeNotification;
+			productReference = 275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		319A0DAA1F6122590088547F /* DemoCode */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 319A0DC21F6122590088547F /* Build configuration list for PBXNativeTarget "DemoCode" */;
@@ -1054,10 +1120,12 @@
 				319A0DA71F6122590088547F /* Sources */,
 				319A0DA81F6122590088547F /* Frameworks */,
 				319A0DA91F6122590088547F /* Resources */,
+				275E68AB204AFC1000D479C2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				275E68A6204AFC1000D479C2 /* PBXTargetDependency */,
 			);
 			name = DemoCode;
 			productName = DemoCode;
@@ -1074,10 +1142,20 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = auction;
 				TargetAttributes = {
+					275E689E204AFC1000D479C2 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = ZYQR8365W8;
+						ProvisioningStyle = Automatic;
+					};
 					319A0DAA1F6122590088547F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = ZYQR8365W8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1095,11 +1173,19 @@
 			projectRoot = "";
 			targets = (
 				319A0DAA1F6122590088547F /* DemoCode */,
+				275E689E204AFC1000D479C2 /* DemoCodeNotification */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		275E689D204AFC1000D479C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		319A0DA91F6122590088547F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1159,6 +1245,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		275E689B204AFC1000D479C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275E68A3204AFC1000D479C2 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		319A0DA71F6122590088547F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1267,6 +1361,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		275E68A6204AFC1000D479C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275E689E204AFC1000D479C2 /* DemoCodeNotification */;
+			targetProxy = 275E68A5204AFC1000D479C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		319A0DCB1F6123A90088547F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1287,6 +1389,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		275E68A9204AFC1000D479C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYQR8365W8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DemoCodeNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode.DemoCodeNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		275E68AA204AFC1000D479C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYQR8365W8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DemoCodeNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode.DemoCodeNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		319A0DC01F6122590088547F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1381,6 +1533,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZYQR8365W8;
 				GCC_PREFIX_HEADER = $SRCROOT/DemoCode/Others/DBPrefixHeader.pch;
 				INFOPLIST_FILE = DemoCode/Others/Info.plist;
@@ -1394,6 +1547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZYQR8365W8;
 				GCC_PREFIX_HEADER = $SRCROOT/DemoCode/Others/DBPrefixHeader.pch;
 				INFOPLIST_FILE = DemoCode/Others/Info.plist;
@@ -1406,6 +1560,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		275E68A8204AFC1000D479C2 /* Build configuration list for PBXNativeTarget "DemoCodeNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275E68A9204AFC1000D479C2 /* Debug */,
+				275E68AA204AFC1000D479C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		319A0DA61F6122590088547F /* Build configuration list for PBXProject "DemoCode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

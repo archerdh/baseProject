@@ -30,6 +30,7 @@
             PHFetchResult<PHAsset *> *result = [PHAsset fetchAssetsInAssetCollection:collection options:option];
             NSString *title = [weakSelf getCollectionTitle:collection];
             model = [weakSelf getAlbumModeWithTitle:title result:result Sort:config.sortAscending];
+            model.isCamera = 1;
         }
     }];
     return model;
@@ -110,6 +111,7 @@
                 
                 if (collection.assetCollectionSubtype == 209) {
                     DBImageListModel *m = [weakSelf getAlbumModeWithTitle:title result:result Sort:config.sortAscending];
+                    m.isCamera = 1;
                     [arrAlbum insertObject:m atIndex:0];
                 } else {
                     [arrAlbum addObject:[weakSelf getAlbumModeWithTitle:title result:result Sort:config.sortAscending]];
