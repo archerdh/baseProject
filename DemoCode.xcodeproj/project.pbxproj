@@ -155,6 +155,9 @@
 		31B9D58D20480E89009C21AF /* DBCustomLibraryCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D58C20480E89009C21AF /* DBCustomLibraryCameraCell.m */; };
 		31B9D599204940B0009C21AF /* DBFaceIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D598204940B0009C21AF /* DBFaceIDViewController.m */; };
 		31B9D59D204945C0009C21AF /* DBRootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D59C204945C0009C21AF /* DBRootModel.m */; };
+		31B9D5AD204D764C009C21AF /* TBCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D5AC204D764C009C21AF /* TBCameraController.m */; };
+		31B9D5B0204D76C7009C21AF /* DBTestCarmerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D5AF204D76C7009C21AF /* DBTestCarmerViewController.m */; };
+		31B9D5B3204D7718009C21AF /* TBPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9D5B1204D7717009C21AF /* TBPreviewView.m */; };
 		31E7BEE1202C598300CD5BDF /* DBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE0202C598300CD5BDF /* DBRootViewController.m */; };
 		31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */; };
 /* End PBXBuildFile section */
@@ -441,6 +444,12 @@
 		31B9D598204940B0009C21AF /* DBFaceIDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBFaceIDViewController.m; sourceTree = "<group>"; };
 		31B9D59B204945C0009C21AF /* DBRootModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRootModel.h; sourceTree = "<group>"; };
 		31B9D59C204945C0009C21AF /* DBRootModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRootModel.m; sourceTree = "<group>"; };
+		31B9D5AB204D764C009C21AF /* TBCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCameraController.h; sourceTree = "<group>"; };
+		31B9D5AC204D764C009C21AF /* TBCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCameraController.m; sourceTree = "<group>"; };
+		31B9D5AE204D76C7009C21AF /* DBTestCarmerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTestCarmerViewController.h; sourceTree = "<group>"; };
+		31B9D5AF204D76C7009C21AF /* DBTestCarmerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTestCarmerViewController.m; sourceTree = "<group>"; };
+		31B9D5B1204D7717009C21AF /* TBPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBPreviewView.m; sourceTree = "<group>"; };
+		31B9D5B2204D7717009C21AF /* TBPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPreviewView.h; sourceTree = "<group>"; };
 		31E7BEDF202C598300CD5BDF /* DBRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRootViewController.h; sourceTree = "<group>"; };
 		31E7BEE0202C598300CD5BDF /* DBRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRootViewController.m; sourceTree = "<group>"; };
 		31E7BEE4202C59E300CD5BDF /* DBCustomLibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryViewController.h; sourceTree = "<group>"; };
@@ -1067,6 +1076,12 @@
 		31E7BEE2202C59C400CD5BDF /* CustomLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				31B9D5AB204D764C009C21AF /* TBCameraController.h */,
+				31B9D5AC204D764C009C21AF /* TBCameraController.m */,
+				31B9D5B2204D7717009C21AF /* TBPreviewView.h */,
+				31B9D5B1204D7717009C21AF /* TBPreviewView.m */,
+				31B9D5AE204D76C7009C21AF /* DBTestCarmerViewController.h */,
+				31B9D5AF204D76C7009C21AF /* DBTestCarmerViewController.m */,
 				315085532046578C00AF1970 /* Other */,
 				315084E32044081300AF1970 /* Resource */,
 				315084DC2043F67300AF1970 /* View */,
@@ -1270,6 +1285,7 @@
 				319A0EA11F612DEB0088547F /* BaseNavigationController.m in Sources */,
 				31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */,
 				319A0DD11F6123A90088547F /* AppDelegate.m in Sources */,
+				31B9D5B0204D76C7009C21AF /* DBTestCarmerViewController.m in Sources */,
 				319A0F3F1F6157760088547F /* MJRefreshHeader.m in Sources */,
 				319A0E771F612B710088547F /* PPAFHTTPClient.m in Sources */,
 				315084DA2043D63000AF1970 /* DBImageListModel.m in Sources */,
@@ -1291,6 +1307,7 @@
 				319A0EA51F612DEB0088547F /* AUFailView.m in Sources */,
 				319A0F4A1F6157760088547F /* MJRefreshConst.m in Sources */,
 				319A0EB01F612DEB0088547F /* BaseView.m in Sources */,
+				31B9D5AD204D764C009C21AF /* TBCameraController.m in Sources */,
 				319A0EFF1F6156800088547F /* SDWebImageCompat.m in Sources */,
 				319A0E451F6128780088547F /* NSData+Base64.m in Sources */,
 				319A0E5B1F612A810088547F /* NSMutableArray+Additional.m in Sources */,
@@ -1334,6 +1351,7 @@
 				319A0EC51F6135820088547F /* AFURLSessionManager.m in Sources */,
 				319A0E5E1F612A810088547F /* UIImage+Additional.m in Sources */,
 				319A0F3D1F6157760088547F /* MJRefreshComponent.m in Sources */,
+				31B9D5B3204D7718009C21AF /* TBPreviewView.m in Sources */,
 				319A0EDB1F6155A80088547F /* Jastor.m in Sources */,
 				3150854020450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m in Sources */,
 				315084DF2043F69100AF1970 /* DBCustomLibraryImageCell.m in Sources */,
