@@ -15,10 +15,11 @@
 @interface DBCustomLibraryImageCell ()
 
 @property (strong, nonatomic) UIImageView *backImageView;
-@property (strong, nonatomic) UIButton *seletedBtn;
 @property (strong, nonatomic) UIImageView *bottomImageView;
 @property (strong, nonatomic) UIImageView *VideoImageView;
 @property (strong, nonatomic) UIImageView *LiveImageView;
+@property (strong, nonatomic) UIView *layerView;    //遮罩层
+
 @property (strong, nonatomic) UILabel *bottomStatusLabel;
 
 @property (nonatomic, assign) PHImageRequestID imageRequestID;
@@ -37,6 +38,7 @@
         [self.bottomImageView addSubview:self.LiveImageView];
         [self.bottomImageView addSubview:self.bottomStatusLabel];
         [self addSubview:self.seletedBtn];
+        [self addSubview:self.layerView];
     }
     return self;
 }
@@ -46,28 +48,45 @@
     _model = model;
     if (model.mediaType == DBAssetMediaTypeImage) {
         self.bottomImageView.hidden = YES;
+        self.seletedBtn.hidden = NO;
+        self.layerView.hidden = YES;
     }
     else if (model.mediaType == DBAssetMediaTypeGif)
     {
+        self.seletedBtn.hidden = NO;
         self.bottomImageView.hidden = NO;
         self.LiveImageView.hidden = YES;
         self.VideoImageView.hidden = YES;
+        self.layerView.hidden = YES;
         self.bottomStatusLabel.text = @"Gif";
     }
     else if (model.mediaType == DBAssetMediaTypeVideo)
     {
+        self.seletedBtn.hidden = YES;
         self.bottomImageView.hidden = NO;
         self.LiveImageView.hidden = YES;
         self.VideoImageView.hidden = NO;
         self.bottomStatusLabel.text = @"Video";
+        if (self.isChoosed) {
+            self.layerView.hidden = NO;
+        }
+        else
+        {
+            self.layerView.hidden = YES;
+        }
     }
     else if (model.mediaType == DBAssetMediaTypeLivePhoto)
     {
+        self.seletedBtn.hidden = NO;
         self.bottomImageView.hidden = NO;
         self.LiveImageView.hidden = NO;
+        self.layerView.hidden = YES;
         self.VideoImageView.hidden = YES;
         self.bottomStatusLabel.text = @"Live";
     }
+    
+    self.seletedBtn.selected = model.isSelected;
+    
     WS(weakSelf);
     self.identifier = model.asset.localIdentifier;
     self.imageRequestID = [self requestImageForAsset:model.asset size:kSize(self.width * 1.5, self.height * 1.5) resizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *image, NSDictionary *info) {
@@ -117,7 +136,12 @@
 #pragma mark - Action
 - (void)btnSelectClick:(UIButton *)btn
 {
-    [btn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
+    if (!self.model.selected) {
+        [btn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
+    }
+    if (self.seleteBlock) {
+        self.seleteBlock();
+    }
 }
 
 static inline CAKeyframeAnimation * GetBtnStatusChangedAnimation() {
@@ -196,6 +220,19 @@ static inline CAKeyframeAnimation * GetBtnStatusChangedAnimation() {
         });
     }
     return _LiveImageView;
+}
+
+- (UIView *)layerView
+{
+    if (!_layerView) {
+        _layerView = ({
+            UIView *view = [[UIView alloc] initWithFrame:self.backImageView.bounds];
+            view.backgroundColor = UIColorFromRGBA(0xeeeeee, 0.5);
+            view.hidden = YES;
+            view;
+        });
+    }
+    return _layerView;
 }
 
 - (UIButton *)seletedBtn

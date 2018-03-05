@@ -52,6 +52,10 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
     [self setNavTitle:self.model.title];
     self.navigationBar.rightBarItems = @[self.cancleBtn];
     [self.view addSubview:self.collectionView];
+    [self.view bringSubviewToFront:self.navigationBar];
+    self.navigationBar.backgroundColor = UIColorFromRGBA(0xffffff, 0.8);
+    self.navigationBar.statusBarView.backgroundColor = UIColorFromRGBA(0xffffff, 0.8);
+    self.navigationBar.navigationBarView.backgroundColor = UIColorFromRGBA(0xffffff, 0.8);
 }
 
 #pragma makr - UIViewControllerPreviewingDelegate
@@ -110,6 +114,7 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    WS(weakSelf);
     DBCustomLibraryNavViewController *nav = (DBCustomLibraryNavViewController *)self.navigationController;
     DBLibraryConfig *config = nav.config;
     if (self.model.isCamera && ((indexPath.item == 0 && !config.sortAscending) || (indexPath.item == self.model.count && config.sortAscending))) {
@@ -121,6 +126,22 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
     }
     NSInteger index = self.model.isCamera ? (!config.sortAscending ? indexPath.item - 1 : indexPath.item) : indexPath.item;
     DBCustomLibraryImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:libraryCellID forIndexPath:indexPath];
+    __strong typeof(cell) strongCell = cell;
+    __strong typeof(nav) strongNav = nav;
+    cell.isChoosed = nav.arrSelectedModels.count > 0;
+    cell.seleteBlock = ^{
+        strongCell.model.selected = !strongCell.model.selected;
+        strongCell.seletedBtn.selected = strongCell.model.selected;
+        if (strongCell.model.selected) {
+            [strongNav.arrSelectedModels addObject:strongCell.model];
+        }
+        else
+        {
+            [strongNav.arrSelectedModels removeObject:strongCell.model];
+        }
+        //去掉隐世动画
+        [weakSelf.collectionView reloadData];
+    };
     cell.model = self.model.models[index];
     return cell;
 }
@@ -161,7 +182,8 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
             layout.minimumLineSpacing = 1.5;
             layout.scrollDirection = UICollectionViewScrollDirectionVertical;
             layout.sectionInset = UIEdgeInsetsMake(3, 3, 3, 3);
-            UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:kRect(0, self.navigationBar.bottom, kMainBoundsWidth, kMainBoundsHeight - self.navigationBar.bottom) collectionViewLayout:layout];
+            layout.headerReferenceSize = kSize(kMainBoundsWidth, self.navigationBar.height);
+            UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:kRect(0, 0, kMainBoundsWidth, kMainBoundsHeight) collectionViewLayout:layout];
             collectionView.backgroundColor = [UIColor whiteColor];
             collectionView.dataSource = self;
             collectionView.delegate = self;
@@ -171,7 +193,9 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
                 [self registerForPreviewingWithDelegate:self sourceView:collectionView];
             } else {
             }
-            
+            if (@available(iOS 11.0, *)) {
+                [collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+            }
             collectionView;
         });
     }
