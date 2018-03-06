@@ -9,6 +9,7 @@
 #import "DBCustomLibraryImageCell.h"
 //V
 #import "UIButton+DBEnlargeTouchArea.h"
+
 //M
 #import "DBImageListModel.h"
 
@@ -134,10 +135,10 @@
 }
 
 #pragma mark - Action
-- (void)btnSelectClick:(UIButton *)btn
+- (void)btnSelectClick
 {
     if (!self.model.selected) {
-        [btn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
+        [self.seletedBtn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
     }
     if (self.seleteBlock) {
         self.seleteBlock();
@@ -243,7 +244,7 @@ static inline CAKeyframeAnimation * GetBtnStatusChangedAnimation() {
             btn.frame = kRect(self.contentView.width - 26, 5, 23, 23);
             [btn setBackgroundImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
             [btn setBackgroundImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
-            [btn addTarget:self action:@selector(btnSelectClick:) forControlEvents:UIControlEventTouchUpInside];
+            [btn addTarget:self action:@selector(btnSelectClick) forControlEvents:UIControlEventTouchDown];
             //扩大点击区域
             [btn setEnlargeEdgeWithTop:0 right:0 bottom:20 left:20];
             btn;

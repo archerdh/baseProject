@@ -28,6 +28,9 @@
 @property (strong, nonatomic) UIButton *cancleBtn;
 @property (strong, nonatomic) UICollectionView *collectionView;
 
+//标记视频indexPath，用于选中图片reload使用
+@property (strong, nonatomic) NSMutableArray *videoArr;
+
 @end
 
 static NSString *libraryCellID = @"DBCustomLibraryImageCell";
@@ -44,6 +47,7 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.videoArr = [NSMutableArray array];
     if (!self.model) {
         DBCustomLibraryNavViewController *nav = (DBCustomLibraryNavViewController *)self.navigationController;
         self.model = [DBCustomLibraryManager getCameraRollAlbumList:nav.config];
@@ -141,9 +145,15 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
             [strongNav.arrSelectedModels removeObject:strongCell.model];
         }
         //去掉隐世动画
-        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView reloadItemsAtIndexPaths:weakSelf.videoArr];
+//        [weakSelf.collectionView reloadData];
     };
     cell.model = self.model.models[index];
+    if (cell.model.mediaType == DBAssetMediaTypeVideo) {
+        if (![self.videoArr containsObject:indexPath]) {
+            [self.videoArr addObject:indexPath];
+        }
+    }
     return cell;
 }
 

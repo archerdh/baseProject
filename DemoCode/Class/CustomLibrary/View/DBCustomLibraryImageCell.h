@@ -7,6 +7,7 @@
 //  相册照片itemcell
 
 #import <UIKit/UIKit.h>
+
 @class DBImageModel;
 typedef void(^DBCustomLibraryImageCellBlock)();
 
