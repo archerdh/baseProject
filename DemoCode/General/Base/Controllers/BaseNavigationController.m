@@ -7,7 +7,16 @@
 #import "BaseNavigationController.h"
 #import "UIImage+Additional.h"
 #import "AppDelegate.h"
+#import "DBPushAnimationDetailViewController.h"
+#import "DBPushAnimationListViewController.h"
+
 @interface BaseNavigationController ()<UIGestureRecognizerDelegate>
+
+@property (nonatomic, strong) UIImageView* imageView;
+@property (nonatomic, assign) CGRect origionRect;
+@property (nonatomic, assign) CGRect desRect;
+@property (nonatomic, assign) BOOL isPush;
+@property (nonatomic, weak) id  animationDelegate;
 
 @end
 
@@ -87,6 +96,7 @@
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
+    self.isPush = NO;
     if (self.viewControllers.count == 2) {
 
     }
@@ -110,6 +120,39 @@
 }
 - (BOOL)shouldAutorotate{
     return [self.topViewController shouldAutorotate];
+}
+
+#pragma mark - 转场
+- (void)pushViewController:(UIViewController *)viewController withImageView:(UIImageView *)imageView desRect:(CGRect)desRect delegate:(id<DBNavAnimationManagerDelegate>)delegate{
+    
+    self.delegate = self;
+    self.imageView = imageView;
+    self.origionRect = [imageView convertRect:imageView.frame toView:self.view];
+    self.desRect = desRect;
+    self.isPush = YES;
+    self.animationDelegate = delegate;
+    [self pushViewController:viewController animated:YES];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    if (([toVC isMemberOfClass:[DBPushAnimationDetailViewController class]] || [toVC isMemberOfClass:[DBPushAnimationListViewController class]]) && ([fromVC isMemberOfClass:[DBPushAnimationDetailViewController class]] || [fromVC isMemberOfClass:[DBPushAnimationListViewController class]])) {
+        DBNavAnimationManager* animation = [[DBNavAnimationManager alloc] init];
+        animation.imageView = self.imageView;
+        animation.origionRect = self.origionRect;
+        animation.desRect = self.desRect;
+        animation.isPush = self.isPush;
+        animation.delegate = self.animationDelegate;
+        
+        if (!self.isPush && self.delegate) {
+            self.delegate = nil;
+        }
+        return animation;
+    }
+    else
+    {
+        return nil;
+    }
+    
 }
 
 @end

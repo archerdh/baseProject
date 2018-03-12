@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		275E68A3204AFC1000D479C2 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68A2204AFC1000D479C2 /* NotificationService.m */; };
 		275E68A7204AFC1000D479C2 /* DemoCodeNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		313CE9BE2056246A00139D16 /* DBPushAnimationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9BD2056246A00139D16 /* DBPushAnimationListViewController.m */; };
+		313CE9C02056247900139D16 /* 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 313CE9BF2056247900139D16 /* 1.plist */; };
+		313CE9C42056291800139D16 /* DBPushAnimationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9C32056291800139D16 /* DBPushAnimationModel.m */; };
+		313CE9C820562AF200139D16 /* DBPushAnimationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9C720562AF200139D16 /* DBPushAnimationListCell.m */; };
+		313CE9CC20562F5F00139D16 /* NSString+DBSizeForString.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9CB20562F5F00139D16 /* NSString+DBSizeForString.m */; };
+		313CE9CF205647E700139D16 /* DBAnimationListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9CE205647E700139D16 /* DBAnimationListLayout.m */; };
+		313CE9D42056553F00139D16 /* DBPushAnimationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9D32056553F00139D16 /* DBPushAnimationDetailViewController.m */; };
+		313CE9D72056595400139D16 /* DBNavAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9D62056595400139D16 /* DBNavAnimationManager.m */; };
 		315084DA2043D63000AF1970 /* DBImageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 315084D92043D63000AF1970 /* DBImageListModel.m */; };
 		315084DF2043F69100AF1970 /* DBCustomLibraryImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 315084DE2043F69100AF1970 /* DBCustomLibraryImageCell.m */; };
 		315084E2204406F400AF1970 /* UIButton+DBEnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 315084E1204406F400AF1970 /* UIButton+DBEnlargeTouchArea.m */; };
@@ -191,6 +199,21 @@
 		275E68A1204AFC1000D479C2 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		275E68A2204AFC1000D479C2 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		275E68A4204AFC1000D479C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		313CE9BC2056246A00139D16 /* DBPushAnimationListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPushAnimationListViewController.h; sourceTree = "<group>"; };
+		313CE9BD2056246A00139D16 /* DBPushAnimationListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPushAnimationListViewController.m; sourceTree = "<group>"; };
+		313CE9BF2056247900139D16 /* 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1.plist; sourceTree = "<group>"; };
+		313CE9C22056291800139D16 /* DBPushAnimationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPushAnimationModel.h; sourceTree = "<group>"; };
+		313CE9C32056291800139D16 /* DBPushAnimationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPushAnimationModel.m; sourceTree = "<group>"; };
+		313CE9C620562AF200139D16 /* DBPushAnimationListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPushAnimationListCell.h; sourceTree = "<group>"; };
+		313CE9C720562AF200139D16 /* DBPushAnimationListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPushAnimationListCell.m; sourceTree = "<group>"; };
+		313CE9CA20562F5F00139D16 /* NSString+DBSizeForString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DBSizeForString.h"; sourceTree = "<group>"; };
+		313CE9CB20562F5F00139D16 /* NSString+DBSizeForString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DBSizeForString.m"; sourceTree = "<group>"; };
+		313CE9CD205647E700139D16 /* DBAnimationListLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBAnimationListLayout.h; sourceTree = "<group>"; };
+		313CE9CE205647E700139D16 /* DBAnimationListLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBAnimationListLayout.m; sourceTree = "<group>"; };
+		313CE9D22056553F00139D16 /* DBPushAnimationDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPushAnimationDetailViewController.h; sourceTree = "<group>"; };
+		313CE9D32056553F00139D16 /* DBPushAnimationDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPushAnimationDetailViewController.m; sourceTree = "<group>"; };
+		313CE9D52056595400139D16 /* DBNavAnimationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBNavAnimationManager.h; sourceTree = "<group>"; };
+		313CE9D62056595400139D16 /* DBNavAnimationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBNavAnimationManager.m; sourceTree = "<group>"; };
 		315084D82043D63000AF1970 /* DBImageListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBImageListModel.h; sourceTree = "<group>"; };
 		315084D92043D63000AF1970 /* DBImageListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBImageListModel.m; sourceTree = "<group>"; };
 		315084DD2043F69100AF1970 /* DBCustomLibraryImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCustomLibraryImageCell.h; sourceTree = "<group>"; };
@@ -484,6 +507,48 @@
 			path = DemoCodeNotification;
 			sourceTree = "<group>";
 		};
+		313CE9BA2056244800139D16 /* PushAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				313CE9C520562ADA00139D16 /* V */,
+				313CE9C1205628F200139D16 /* Model */,
+				313CE9BF2056247900139D16 /* 1.plist */,
+				313CE9BB2056245900139D16 /* VC */,
+			);
+			path = PushAnimation;
+			sourceTree = "<group>";
+		};
+		313CE9BB2056245900139D16 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				313CE9BC2056246A00139D16 /* DBPushAnimationListViewController.h */,
+				313CE9BD2056246A00139D16 /* DBPushAnimationListViewController.m */,
+				313CE9D22056553F00139D16 /* DBPushAnimationDetailViewController.h */,
+				313CE9D32056553F00139D16 /* DBPushAnimationDetailViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		313CE9C1205628F200139D16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				313CE9C22056291800139D16 /* DBPushAnimationModel.h */,
+				313CE9C32056291800139D16 /* DBPushAnimationModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		313CE9C520562ADA00139D16 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				313CE9C620562AF200139D16 /* DBPushAnimationListCell.h */,
+				313CE9C720562AF200139D16 /* DBPushAnimationListCell.m */,
+				313CE9CD205647E700139D16 /* DBAnimationListLayout.h */,
+				313CE9CE205647E700139D16 /* DBAnimationListLayout.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 		315084D72043D61500AF1970 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +743,7 @@
 		319A0DE11F6126AA0088547F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				313CE9BA2056244800139D16 /* PushAnimation */,
 				31B9D59620494097009C21AF /* FaceID */,
 				31E7BEE2202C59C400CD5BDF /* CustomLibrary */,
 				31E7BEDE202C596300CD5BDF /* Root */,
@@ -720,6 +786,8 @@
 				319A0F501F6157A70088547F /* UIScrollView+AURefreshMethods.m */,
 				315084E0204406F400AF1970 /* UIButton+DBEnlargeTouchArea.h */,
 				315084E1204406F400AF1970 /* UIButton+DBEnlargeTouchArea.m */,
+				313CE9CA20562F5F00139D16 /* NSString+DBSizeForString.h */,
+				313CE9CB20562F5F00139D16 /* NSString+DBSizeForString.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -851,6 +919,8 @@
 			children = (
 				319A0E871F612DEB0088547F /* BaseModel.h */,
 				319A0E881F612DEB0088547F /* BaseModel.m */,
+				313CE9D52056595400139D16 /* DBNavAnimationManager.h */,
+				313CE9D62056595400139D16 /* DBNavAnimationManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1205,6 +1275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				313CE9C02056247900139D16 /* 1.plist in Resources */,
 				315085282044140C00AF1970 /* playVideo@2x.png in Resources */,
 				315085212044140C00AF1970 /* video@2x.png in Resources */,
 				315085192044140C00AF1970 /* livePhoto@3x.png in Resources */,
@@ -1300,18 +1371,22 @@
 				319A0F4B1F6157760088547F /* NSBundle+MJRefresh.m in Sources */,
 				3162D666202D742900DAB174 /* DBNavigationBar.m in Sources */,
 				319A0F061F6156800088547F /* UIImage+GIF.m in Sources */,
+				313CE9D42056553F00139D16 /* DBPushAnimationDetailViewController.m in Sources */,
 				319A0E7A1F612B710088547F /* PPJSONRequestSerializer.m in Sources */,
 				319A0E611F612A810088547F /* UIView+UIView_Additional.m in Sources */,
 				319A0EA81F612DEB0088547F /* AUNodataView.m in Sources */,
 				319A0EDC1F6155A80088547F /* JastorRuntimeHelper.m in Sources */,
 				319A0EA51F612DEB0088547F /* AUFailView.m in Sources */,
+				313CE9C820562AF200139D16 /* DBPushAnimationListCell.m in Sources */,
 				319A0F4A1F6157760088547F /* MJRefreshConst.m in Sources */,
 				319A0EB01F612DEB0088547F /* BaseView.m in Sources */,
 				31B9D5AD204D764C009C21AF /* TBCameraController.m in Sources */,
 				319A0EFF1F6156800088547F /* SDWebImageCompat.m in Sources */,
 				319A0E451F6128780088547F /* NSData+Base64.m in Sources */,
 				319A0E5B1F612A810088547F /* NSMutableArray+Additional.m in Sources */,
+				313CE9D72056595400139D16 /* DBNavAnimationManager.m in Sources */,
 				319A0EAA1F612DEB0088547F /* BaseDoubleLineCell.m in Sources */,
+				313CE9C42056291800139D16 /* DBPushAnimationModel.m in Sources */,
 				319A0EFD1F6156800088547F /* NSData+ImageContentType.m in Sources */,
 				319A0F431F6157760088547F /* MJRefreshBackGifFooter.m in Sources */,
 				319A0E761F612B710088547F /* NetworkHelper.m in Sources */,
@@ -1323,6 +1398,7 @@
 				31508549204554C700AF1970 /* DBCustomListLibraryViewController.m in Sources */,
 				319A0E411F6128780088547F /* GTMBase64.m in Sources */,
 				31B9D58D20480E89009C21AF /* DBCustomLibraryCameraCell.m in Sources */,
+				313CE9CC20562F5F00139D16 /* NSString+DBSizeForString.m in Sources */,
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
 				319A0EA21F612DEB0088547F /* BaseTabBarController.m in Sources */,
 				319A0F4C1F6157760088547F /* UIScrollView+MJExtension.m in Sources */,
@@ -1334,10 +1410,12 @@
 				319A0EAD1F612DEB0088547F /* BaseLineCell.m in Sources */,
 				319A0F481F6157760088547F /* MJRefreshStateHeader.m in Sources */,
 				319A0EC01F6135820088547F /* AFHTTPSessionManager.m in Sources */,
+				313CE9BE2056246A00139D16 /* DBPushAnimationListViewController.m in Sources */,
 				319A0F3E1F6157760088547F /* MJRefreshFooter.m in Sources */,
 				319A0E681F612B060088547F /* Helper.m in Sources */,
 				319A0EA61F612DEB0088547F /* AULoadingView.m in Sources */,
 				3150855A20467B5900AF1970 /* DBLibraryConfig.m in Sources */,
+				313CE9CF205647E700139D16 /* DBAnimationListLayout.m in Sources */,
 				319A0EC31F6135820088547F /* AFURLRequestSerialization.m in Sources */,
 				319A0F4E1F6157760088547F /* UIView+MJExtension.m in Sources */,
 				319A0E5A1F612A810088547F /* NSDictionary+Additional.m in Sources */,

@@ -13,6 +13,7 @@
 #import "DBCustomListLibraryViewController.h"
 #import "DBCustomLibraryNavViewController.h"
 #import "DBFaceIDViewController.h"
+#import "DBPushAnimationListViewController.h"
 
 //V
 #import "YYFPSLabel.h"
@@ -24,6 +25,7 @@
 @interface DBRootViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSArray *sourceArr;
 
 @end
 
@@ -35,6 +37,7 @@ static NSString *rootCellID = @"rootCellID";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.sourceArr = @[@"进入相册", @"转场动画"];
     [self setupViews];
 }
 
@@ -89,7 +92,7 @@ static NSString *rootCellID = @"rootCellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.sourceArr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,13 +104,20 @@ static NSString *rootCellID = @"rootCellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:rootCellID];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"进入相册";
+    cell.textLabel.text = self.sourceArr[indexPath.item];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self chooseImage];
+    if (indexPath.row == 0) {
+        [self chooseImage];
+    }
+    else if(indexPath.row == 1)
+    {
+        DBPushAnimationListViewController *vc = [DBPushAnimationListViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     //face
 //    DBFaceIDViewController *vc = [DBFaceIDViewController new];
 //    [self.navigationController pushViewController:vc animated:YES];
