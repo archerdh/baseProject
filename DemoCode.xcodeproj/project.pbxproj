@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		275E68A3204AFC1000D479C2 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68A2204AFC1000D479C2 /* NotificationService.m */; };
 		275E68A7204AFC1000D479C2 /* DemoCodeNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		313606AA20592DB500562B38 /* DBUserDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606A920592DB500562B38 /* DBUserDetailListViewController.m */; };
+		313606B0205930E400562B38 /* DBUserDetailListBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606AF205930E400562B38 /* DBUserDetailListBackgroundViewController.m */; };
+		313606B420594E1900562B38 /* DBUserDetailBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606B320594E1900562B38 /* DBUserDetailBackgroundView.m */; };
+		313606B820594EA500562B38 /* DBUserDetailBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606B720594EA500562B38 /* DBUserDetailBaseListViewController.m */; };
+		313606BB20594EDB00562B38 /* DBUserDetailItemOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606BA20594EDB00562B38 /* DBUserDetailItemOneViewController.m */; };
+		313606BF20594FD900562B38 /* DBUserDetailOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606BE20594FD900562B38 /* DBUserDetailOneCell.m */; };
+		313606C22059503F00562B38 /* DBUserDetailTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606C12059503F00562B38 /* DBUserDetailTwoViewController.m */; };
+		313606C52059509300562B38 /* DBUserDetailTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606C42059509300562B38 /* DBUserDetailTwoCell.m */; };
 		313CE9BE2056246A00139D16 /* DBPushAnimationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9BD2056246A00139D16 /* DBPushAnimationListViewController.m */; };
 		313CE9C02056247900139D16 /* 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 313CE9BF2056247900139D16 /* 1.plist */; };
 		313CE9C42056291800139D16 /* DBPushAnimationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9C32056291800139D16 /* DBPushAnimationModel.m */; };
@@ -199,6 +207,22 @@
 		275E68A1204AFC1000D479C2 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		275E68A2204AFC1000D479C2 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		275E68A4204AFC1000D479C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		313606A820592DB500562B38 /* DBUserDetailListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListViewController.h; sourceTree = "<group>"; };
+		313606A920592DB500562B38 /* DBUserDetailListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailListViewController.m; sourceTree = "<group>"; };
+		313606AE205930E400562B38 /* DBUserDetailListBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListBackgroundViewController.h; sourceTree = "<group>"; };
+		313606AF205930E400562B38 /* DBUserDetailListBackgroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailListBackgroundViewController.m; sourceTree = "<group>"; };
+		313606B220594E1900562B38 /* DBUserDetailBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailBackgroundView.h; sourceTree = "<group>"; };
+		313606B320594E1900562B38 /* DBUserDetailBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailBackgroundView.m; sourceTree = "<group>"; };
+		313606B620594EA500562B38 /* DBUserDetailBaseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailBaseListViewController.h; sourceTree = "<group>"; };
+		313606B720594EA500562B38 /* DBUserDetailBaseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailBaseListViewController.m; sourceTree = "<group>"; };
+		313606B920594EDB00562B38 /* DBUserDetailItemOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailItemOneViewController.h; sourceTree = "<group>"; };
+		313606BA20594EDB00562B38 /* DBUserDetailItemOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailItemOneViewController.m; sourceTree = "<group>"; };
+		313606BD20594FD900562B38 /* DBUserDetailOneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailOneCell.h; sourceTree = "<group>"; };
+		313606BE20594FD900562B38 /* DBUserDetailOneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailOneCell.m; sourceTree = "<group>"; };
+		313606C02059503F00562B38 /* DBUserDetailTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailTwoViewController.h; sourceTree = "<group>"; };
+		313606C12059503F00562B38 /* DBUserDetailTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailTwoViewController.m; sourceTree = "<group>"; };
+		313606C32059509300562B38 /* DBUserDetailTwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailTwoCell.h; sourceTree = "<group>"; };
+		313606C42059509300562B38 /* DBUserDetailTwoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailTwoCell.m; sourceTree = "<group>"; };
 		313CE9BC2056246A00139D16 /* DBPushAnimationListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPushAnimationListViewController.h; sourceTree = "<group>"; };
 		313CE9BD2056246A00139D16 /* DBPushAnimationListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPushAnimationListViewController.m; sourceTree = "<group>"; };
 		313CE9BF2056247900139D16 /* 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1.plist; sourceTree = "<group>"; };
@@ -507,6 +531,77 @@
 			path = DemoCodeNotification;
 			sourceTree = "<group>";
 		};
+		313606A620592D8700562B38 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				313606AC2059307F00562B38 /* V */,
+				313606AB2059306F00562B38 /* VC */,
+				313606A820592DB500562B38 /* DBUserDetailListViewController.h */,
+				313606A920592DB500562B38 /* DBUserDetailListViewController.m */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		313606AB2059306F00562B38 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				313606B520594E8500562B38 /* Common */,
+				313606AD2059308900562B38 /* background */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		313606AC2059307F00562B38 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				313606BC20594FAD00562B38 /* Common */,
+				313606B120594E0200562B38 /* background */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		313606AD2059308900562B38 /* background */ = {
+			isa = PBXGroup;
+			children = (
+				313606AE205930E400562B38 /* DBUserDetailListBackgroundViewController.h */,
+				313606AF205930E400562B38 /* DBUserDetailListBackgroundViewController.m */,
+			);
+			path = background;
+			sourceTree = "<group>";
+		};
+		313606B120594E0200562B38 /* background */ = {
+			isa = PBXGroup;
+			children = (
+				313606B220594E1900562B38 /* DBUserDetailBackgroundView.h */,
+				313606B320594E1900562B38 /* DBUserDetailBackgroundView.m */,
+			);
+			path = background;
+			sourceTree = "<group>";
+		};
+		313606B520594E8500562B38 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				313606B620594EA500562B38 /* DBUserDetailBaseListViewController.h */,
+				313606B720594EA500562B38 /* DBUserDetailBaseListViewController.m */,
+				313606B920594EDB00562B38 /* DBUserDetailItemOneViewController.h */,
+				313606BA20594EDB00562B38 /* DBUserDetailItemOneViewController.m */,
+				313606C02059503F00562B38 /* DBUserDetailTwoViewController.h */,
+				313606C12059503F00562B38 /* DBUserDetailTwoViewController.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		313606BC20594FAD00562B38 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				313606BD20594FD900562B38 /* DBUserDetailOneCell.h */,
+				313606BE20594FD900562B38 /* DBUserDetailOneCell.m */,
+				313606C32059509300562B38 /* DBUserDetailTwoCell.h */,
+				313606C42059509300562B38 /* DBUserDetailTwoCell.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		313CE9BA2056244800139D16 /* PushAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,6 +838,7 @@
 		319A0DE11F6126AA0088547F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				313606A620592D8700562B38 /* UserDetail */,
 				313CE9BA2056244800139D16 /* PushAnimation */,
 				31B9D59620494097009C21AF /* FaceID */,
 				31E7BEE2202C59C400CD5BDF /* CustomLibrary */,
@@ -1353,12 +1449,14 @@
 				319A0EA91F612DEB0088547F /* BaseCell.m in Sources */,
 				319A0E5C1F612A810088547F /* NSString+Additional.m in Sources */,
 				319A0EAB1F612DEB0088547F /* BaseDoubleLineView.m in Sources */,
+				313606B420594E1900562B38 /* DBUserDetailBackgroundView.m in Sources */,
 				319A0EA11F612DEB0088547F /* BaseNavigationController.m in Sources */,
 				31E7BEE6202C59E300CD5BDF /* DBCustomLibraryViewController.m in Sources */,
 				319A0DD11F6123A90088547F /* AppDelegate.m in Sources */,
 				31B9D5B0204D76C7009C21AF /* DBTestCarmerViewController.m in Sources */,
 				319A0F3F1F6157760088547F /* MJRefreshHeader.m in Sources */,
 				319A0E771F612B710088547F /* PPAFHTTPClient.m in Sources */,
+				313606C52059509300562B38 /* DBUserDetailTwoCell.m in Sources */,
 				315084DA2043D63000AF1970 /* DBImageListModel.m in Sources */,
 				319A0E781F612B710088547F /* PPCache.m in Sources */,
 				319A0F011F6156800088547F /* SDWebImageDownloader.m in Sources */,
@@ -1401,6 +1499,7 @@
 				313CE9CC20562F5F00139D16 /* NSString+DBSizeForString.m in Sources */,
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
 				319A0EA21F612DEB0088547F /* BaseTabBarController.m in Sources */,
+				313606AA20592DB500562B38 /* DBUserDetailListViewController.m in Sources */,
 				319A0F4C1F6157760088547F /* UIScrollView+MJExtension.m in Sources */,
 				3162D66D202D8B0800DAB174 /* YYFPSLabel.m in Sources */,
 				319A0F451F6157760088547F /* MJRefreshBackStateFooter.m in Sources */,
@@ -1416,8 +1515,11 @@
 				319A0EA61F612DEB0088547F /* AULoadingView.m in Sources */,
 				3150855A20467B5900AF1970 /* DBLibraryConfig.m in Sources */,
 				313CE9CF205647E700139D16 /* DBAnimationListLayout.m in Sources */,
+				313606B820594EA500562B38 /* DBUserDetailBaseListViewController.m in Sources */,
+				313606B0205930E400562B38 /* DBUserDetailListBackgroundViewController.m in Sources */,
 				319A0EC31F6135820088547F /* AFURLRequestSerialization.m in Sources */,
 				319A0F4E1F6157760088547F /* UIView+MJExtension.m in Sources */,
+				313606C22059503F00562B38 /* DBUserDetailTwoViewController.m in Sources */,
 				319A0E5A1F612A810088547F /* NSDictionary+Additional.m in Sources */,
 				319A0DD61F6123A90088547F /* main.m in Sources */,
 				319A0EA41F612DEB0088547F /* BaseModel.m in Sources */,
@@ -1425,8 +1527,10 @@
 				319A0EAF1F612DEB0088547F /* BaseLineView.m in Sources */,
 				319A0F4D1F6157760088547F /* UIScrollView+MJRefresh.m in Sources */,
 				3150854620454C3900AF1970 /* DBCustomLibraryNavViewController.m in Sources */,
+				313606BF20594FD900562B38 /* DBUserDetailOneCell.m in Sources */,
 				31508556204657C000AF1970 /* DBCustomLibraryManager.m in Sources */,
 				319A0EC51F6135820088547F /* AFURLSessionManager.m in Sources */,
+				313606BB20594EDB00562B38 /* DBUserDetailItemOneViewController.m in Sources */,
 				319A0E5E1F612A810088547F /* UIImage+Additional.m in Sources */,
 				319A0F3D1F6157760088547F /* MJRefreshComponent.m in Sources */,
 				31B9D5B3204D7718009C21AF /* TBPreviewView.m in Sources */,

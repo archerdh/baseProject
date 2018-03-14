@@ -13,6 +13,7 @@
 #import "DBCustomListLibraryViewController.h"
 #import "DBCustomLibraryNavViewController.h"
 #import "DBFaceIDViewController.h"
+#import "DBUserDetailListViewController.h"
 #import "DBPushAnimationListViewController.h"
 
 //V
@@ -37,7 +38,7 @@ static NSString *rootCellID = @"rootCellID";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.sourceArr = @[@"进入相册", @"转场动画"];
+    self.sourceArr = @[@"进入相册", @"转场动画", @"个人中心各种形式"];
     [self setupViews];
 }
 
@@ -58,7 +59,7 @@ static NSString *rootCellID = @"rootCellID";
     UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
     content.title = @"徐不同测试通知";
     content.subtitle = @"测试通知";
-    content.body = @"来自徐不同的简书";
+    content.body = @"来自万里的简书";
     content.badge = @1;
     NSError *error = nil;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"playVideo@2x" ofType:@"png"];
@@ -116,6 +117,11 @@ static NSString *rootCellID = @"rootCellID";
     else if(indexPath.row == 1)
     {
         DBPushAnimationListViewController *vc = [DBPushAnimationListViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (indexPath.row == 2)
+    {
+        DBUserDetailListViewController *vc = [[DBUserDetailListViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     //face
