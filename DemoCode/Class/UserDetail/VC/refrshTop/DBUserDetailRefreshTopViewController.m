@@ -1,64 +1,43 @@
 //
-//  DBUserDetailItemOneViewController.m
+//  DBUserDetailRefreshTopViewController.m
 //  DemoCode
 //
-//  Created by zheng zhang on 2018/3/14.
+//  Created by zheng zhang on 2018/3/16.
 //  Copyright © 2018年 auction. All rights reserved.
 //
 
-#import "DBUserDetailItemOneViewController.h"
-#import "DBUserDetailOneCell.h"
+#import "DBUserDetailRefreshTopViewController.h"
 #import "UIScrollView+AURefreshMethods.h"
-@interface DBUserDetailItemOneViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface DBUserDetailRefreshTopViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tabView;
 
 @end
 
-static NSString *detailOneCellID = @"DBUserDetailOneCell";
-
-@implementation DBUserDetailItemOneViewController
+@implementation DBUserDetailRefreshTopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.tabView.contentInset = self.contentInset;
-    self.tabView.height = self.viewHeight;
+    [self addNavigationBar];
     [self.view addSubview:self.tabView];
-}
-
-- (void)setPointY:(CGFloat)pointY
-{
-    [super setPointY:pointY];
-    [self.tabView setContentOffset:kPoint(self.tabView.contentOffset.x, pointY)];
-}
-
-#pragma mark - scrollDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (self.offsetBlock) {
-        self.offsetBlock(scrollView.contentOffset.y);
-    }
 }
 
 #pragma mark - Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DBUserDetailOneCell *cell = [tableView dequeueReusableCellWithIdentifier:detailOneCellID];
-    //去除点击阴影
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (kMainBoundsWidth - 30) * 3 / 4 + 35 + 21 + 10;
+    return 0.00;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,7 +49,7 @@ static NSString *detailOneCellID = @"DBUserDetailOneCell";
 {
     if (!_tabView) {
         _tabView = ({
-            UITableView *tab = [[UITableView alloc] initWithFrame:kRect(0, 0, kMainBoundsWidth, kMainBoundsHeight - 50) style:UITableViewStylePlain];
+            UITableView *tab = [[UITableView alloc] initWithFrame:kRect(0, self.navigationBar.height, kMainBoundsWidth, kMainBoundsHeight - self.navigationBar.height) style:UITableViewStylePlain];
             tab.delegate = self;
             tab.dataSource = self;
             if (@available(iOS 11.0, *)) {
@@ -84,7 +63,6 @@ static NSString *detailOneCellID = @"DBUserDetailOneCell";
                 [weakSelf.tabView.mj_header endRefreshing];
             }];
             tab.separatorStyle = UITableViewCellSelectionStyleNone;
-            [tab registerClass:NSClassFromString(@"DBUserDetailOneCell") forCellReuseIdentifier:detailOneCellID];
             tab.backgroundColor = kDefaultBackgroundColor;
             tab;
         });

@@ -13,6 +13,8 @@ typedef void(^DBUserDetailBaseListViewControllerBlock)(CGFloat offset);
 @interface DBUserDetailBaseListViewController : BaseViewController
 
 @property (assign, nonatomic) UIEdgeInsets contentInset;
+@property (assign, nonatomic) CGFloat pointY;
+
 @property (assign, nonatomic) CGFloat viewHeight;
 @property (copy, nonatomic) DBUserDetailBaseListViewControllerBlock offsetBlock;
 

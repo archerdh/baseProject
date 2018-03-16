@@ -47,6 +47,11 @@
  *  自动配置 contentSize
  */
 @property (nonatomic, assign) UIEdgeInsets sectionInset;
+
+
+@property (nonatomic, assign) CGSize headSize;
+
+
 -(void)autuContentSize;
 
 @end

@@ -12,18 +12,25 @@
 #import "NSString+DBSizeForString.h"
 
 //V
-#import "UIImageView+WebCache.h"
+#import "DBAnimationDetailHeadView.h"
+#import "DBAnimationListLayout.h"
+#import "DBPushAnimationListCell.h"
 
-@interface DBPushAnimationDetailViewController ()<UIScrollViewDelegate>
+//VC
+#import "BaseNavigationController.h"
 
-@property (strong, nonatomic) UIScrollView *backScrollView;
-@property (strong, nonatomic) UIImageView *iconImageView;
-@property (strong, nonatomic) UILabel *nameLabel;
-@property (strong, nonatomic) UIImageView *headImageView;
-@property (strong, nonatomic) UILabel *detailLabel;
+@interface DBPushAnimationDetailViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, DBAnimationListLayoutDelegate>
+
 @property (strong, nonatomic) DBPushAnimationModel *model;
+@property (nonatomic, weak) UICollectionView* collectionView;
+@property (nonatomic, strong) DBAnimationListLayout* collectionLayout;
+@property (nonatomic, strong) NSArray* modelArray;
+@property (nonatomic, assign) CGRect desRect;
 
 @end
+
+static NSString *animationDetailCellID = @"DBPushAnimationListCell";
+static NSString *animationDetailHeadID = @"DBAnimationDetailHeadViewHeadCellID";
 
 @implementation DBPushAnimationDetailViewController
 
@@ -32,10 +39,15 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)initWithModel:(DBPushAnimationModel *)model desImageViewRect:(CGRect)desRect
 {
     if (self = [super init]) {
-        self.headImageView.frame = desRect;
+        self.desRect = desRect;
         self.model = model;
         [self setupViews];
     }
@@ -44,29 +56,24 @@
 
 - (void)setupViews
 {
-    [self.view addSubview:self.backScrollView];
-    [self.backScrollView addSubview:self.iconImageView];
-    [self.backScrollView addSubview:self.nameLabel];
-    [self.backScrollView addSubview:self.headImageView];
-    [self.backScrollView addSubview:self.detailLabel];
+    NSMutableArray* array = [NSMutableArray array];
+    NSArray* dicArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"1.plist" ofType:nil]];
     
-    self.detailLabel.text = self.model.des;
-    self.nameLabel.text = self.model.name;
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.model.icon]];
-    
-    self.headImageView.height = self.view.width * (self.model.h.doubleValue / self.model.w.doubleValue);
-    self.detailLabel.y = self.headImageView.bottom + 10;
-    
-    CGSize detailSize = [self.detailLabel.text sizeWithFont:self.detailLabel.font MaxSize:kSize(self.view.width - 20, MAXFLOAT)];
-    self.detailLabel.size = detailSize;
-    
-    [self.backScrollView setContentSize:kSize(kMainBoundsWidth, self.detailLabel.bottom + 10)];
+    for (NSDictionary* dic in dicArray) {
+        DBPushAnimationModel* m = [DBPushAnimationModel objectFromDictionary:dic];
+        [array addObject:m];
+    }
+    self.modelArray = array;
+    [self.view addSubview:self.collectionView];
 }
 
 #pragma mark - 转场动画
 - (void)didFinishTransition
 {
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.model.img]];
+    CGSize detailSize = [self.model.des sizeWithFont:KFont(13, UIFontWeightRegular) MaxSize:kSize(kMainBoundsWidth - 20, MAXFLOAT)];
+    
+    self.collectionLayout.headSize = kSize(kMainBoundsWidth, detailSize.height + 50 + self.desRect.size.height);
+    [self.collectionView reloadData];
 }
 
 #pragma mark - action
@@ -75,64 +82,96 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark UICollectionViewDataSource, UICollectionViewDelegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.modelArray.count;
+}
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    DBPushAnimationListCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:animationDetailCellID forIndexPath:indexPath];
+    cell.model = self.modelArray[indexPath.item];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DBPushAnimationModel* model = self.modelArray[indexPath.item];
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat scale = width / [model.w floatValue];
+    CGFloat height = [model.h floatValue] * scale;
+    
+    DBPushAnimationListCell* cell = (DBPushAnimationListCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    CGRect desImageViewRect = CGRectMake(0, KTC_TOP_MARGIN + 40, width, height);
+    DBPushAnimationDetailViewController* vc = [[DBPushAnimationDetailViewController alloc] initWithModel:model desImageViewRect:desImageViewRect];
+    
+    [((BaseNavigationController *) self.navigationController) pushViewController:vc withImageView:cell.headImageView desRect:desImageViewRect delegate:vc];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *header = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:animationDetailHeadID forIndexPath:indexPath];
+        DBAnimationDetailHeadView *view = (DBAnimationDetailHeadView *)header;
+        view.model = self.model;
+        WS(weakSelf);
+        view.backBlock = ^{
+            [weakSelf backClick];
+        };
+    }
+    return header;
+}
+
+
+#pragma mark - layout Delegate
+- (CGFloat)OJLWaterLayout:(DBAnimationListLayout *)OJLWaterLayout itemHeightForIndexPath:(NSIndexPath *)indexPath
+{
+    DBPushAnimationModel* model = self.modelArray[indexPath.item];
+    CGFloat width = ([UIScreen mainScreen].bounds.size.width - self.collectionLayout.sectionInset.left - self.collectionLayout.sectionInset.right - (self.collectionLayout.colPanding * (self.collectionLayout.numberOfCol - 1))) / self.collectionLayout.numberOfCol;
+    
+    CGSize detailSize = [model.des sizeWithFont:KFont(12, UIFontWeightRegular) MaxSize:kSize(width - 16, MAXFLOAT)];
+    
+    CGFloat scale = [model.w floatValue] / width;
+    CGFloat height =  [model.h floatValue] / scale + 52 + detailSize.height;
+    return height;
+}
+
 #pragma mark - getter
-- (UIScrollView *)backScrollView
+- (DBAnimationListLayout *)collectionLayout
 {
-    if (!_backScrollView) {
-        _backScrollView = ({
-            UIScrollView *view = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-            view.delegate = self;
-            view;
-        });
+    if (!_collectionLayout) {
+        DBAnimationListLayout *layout = [[DBAnimationListLayout alloc] init];
+        layout.numberOfCol = 2;
+        layout.rowPanding = 15;
+        layout.colPanding = 15;
+        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.delegate = self;
+        self.collectionLayout = layout;
     }
-    return _backScrollView;
+    return _collectionLayout;
 }
 
-- (UIImageView *)headImageView
+- (UICollectionView *)collectionView
 {
-    if (!_headImageView) {
-        UIImageView *view = [[UIImageView alloc] initWithFrame:kRect(0, self.iconImageView.bottom + 10, self.view.width, 0)];
-        view.contentMode = UIViewContentModeScaleToFill;
-        view.userInteractionEnabled = YES;
-        [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backClick)]];
-        self.headImageView = view;
+    if (!_collectionView) {
+        [self.collectionLayout autuContentSize];
+        
+        UICollectionView *view = [[UICollectionView alloc] initWithFrame:kRect(0, self.navigationBar.height, kMainBoundsWidth, kMainBoundsHeight - self.navigationBar.height) collectionViewLayout:self.collectionLayout];
+        view.delegate = self;
+        view.dataSource = self;
+        view.backgroundColor = UIColorFromRGB(0xeeeeee);
+        [view registerClass:NSClassFromString(@"DBPushAnimationListCell") forCellWithReuseIdentifier:animationDetailCellID];
+        [view registerClass:[DBAnimationDetailHeadView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:animationDetailHeadID];
+
+        self.collectionView = view;
     }
-    return _headImageView;
+    return _collectionView;
 }
 
-- (UILabel *)detailLabel
-{
-    if (!_detailLabel) {
-        UILabel *label = [[UILabel alloc] initWithFrame:kRect(8, 0, 0, 0)];
-        label.numberOfLines = 0;
-        label.font = KFont(13, UIFontWeightRegular);
-        label.textColor = UIColorFromRGB(0x000000);
-        self.detailLabel = label;
-    }
-    return _detailLabel;
-}
 
-- (UIImageView *)iconImageView
-{
-    if (!_iconImageView) {
-        UIImageView *view = [[UIImageView alloc] initWithFrame:kRect(10, KTC_TOP_MARGIN, 30, 30)];
-        view.layer.masksToBounds = YES;
-        view.layer.cornerRadius = 15;
-        self.iconImageView = view;
-    }
-    return _iconImageView;
-}
-
-- (UILabel *)nameLabel
-{
-    if (!_nameLabel) {
-        UILabel *label = [[UILabel alloc] initWithFrame:kRect(self.iconImageView.right + 10, 0, kMainBoundsWidth - 20 - self.iconImageView.right, 30)];
-        label.font = KFont(12, UIFontWeightRegular);
-        label.textColor = UIColorFromRGB(0x000000);
-        label.centerY = self.iconImageView.centerY;
-        self.nameLabel = label;
-    }
-    return _nameLabel;
-}
 
 @end

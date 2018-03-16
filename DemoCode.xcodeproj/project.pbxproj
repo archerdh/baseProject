@@ -17,6 +17,10 @@
 		313606BF20594FD900562B38 /* DBUserDetailOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606BE20594FD900562B38 /* DBUserDetailOneCell.m */; };
 		313606C22059503F00562B38 /* DBUserDetailTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606C12059503F00562B38 /* DBUserDetailTwoViewController.m */; };
 		313606C52059509300562B38 /* DBUserDetailTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606C42059509300562B38 /* DBUserDetailTwoCell.m */; };
+		313606E6205B906C00562B38 /* DBUserDetailCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606E5205B906C00562B38 /* DBUserDetailCommonCell.m */; };
+		313606EC205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606EB205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.m */; };
+		313606F0205BAF7400562B38 /* DBUserDetailRefreshTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606EF205BAF7400562B38 /* DBUserDetailRefreshTopViewController.m */; };
+		313606F3205BB11300562B38 /* DBAnimationDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606F2205BB11300562B38 /* DBAnimationDetailHeadView.m */; };
 		313CE9BE2056246A00139D16 /* DBPushAnimationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9BD2056246A00139D16 /* DBPushAnimationListViewController.m */; };
 		313CE9C02056247900139D16 /* 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 313CE9BF2056247900139D16 /* 1.plist */; };
 		313CE9C42056291800139D16 /* DBPushAnimationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CE9C32056291800139D16 /* DBPushAnimationModel.m */; };
@@ -223,6 +227,14 @@
 		313606C12059503F00562B38 /* DBUserDetailTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailTwoViewController.m; sourceTree = "<group>"; };
 		313606C32059509300562B38 /* DBUserDetailTwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailTwoCell.h; sourceTree = "<group>"; };
 		313606C42059509300562B38 /* DBUserDetailTwoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailTwoCell.m; sourceTree = "<group>"; };
+		313606E4205B906C00562B38 /* DBUserDetailCommonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailCommonCell.h; sourceTree = "<group>"; };
+		313606E5205B906C00562B38 /* DBUserDetailCommonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailCommonCell.m; sourceTree = "<group>"; };
+		313606EA205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailRefreshMiddleViewController.h; sourceTree = "<group>"; };
+		313606EB205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailRefreshMiddleViewController.m; sourceTree = "<group>"; };
+		313606EE205BAF7400562B38 /* DBUserDetailRefreshTopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailRefreshTopViewController.h; sourceTree = "<group>"; };
+		313606EF205BAF7400562B38 /* DBUserDetailRefreshTopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailRefreshTopViewController.m; sourceTree = "<group>"; };
+		313606F1205BB11300562B38 /* DBAnimationDetailHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBAnimationDetailHeadView.h; sourceTree = "<group>"; };
+		313606F2205BB11300562B38 /* DBAnimationDetailHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBAnimationDetailHeadView.m; sourceTree = "<group>"; };
 		313CE9BC2056246A00139D16 /* DBPushAnimationListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPushAnimationListViewController.h; sourceTree = "<group>"; };
 		313CE9BD2056246A00139D16 /* DBPushAnimationListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPushAnimationListViewController.m; sourceTree = "<group>"; };
 		313CE9BF2056247900139D16 /* 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1.plist; sourceTree = "<group>"; };
@@ -545,6 +557,8 @@
 		313606AB2059306F00562B38 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				313606ED205BAF5C00562B38 /* refrshTop */,
+				313606E9205BAF2C00562B38 /* refresh_middle */,
 				313606B520594E8500562B38 /* Common */,
 				313606AD2059308900562B38 /* background */,
 			);
@@ -598,8 +612,28 @@
 				313606BE20594FD900562B38 /* DBUserDetailOneCell.m */,
 				313606C32059509300562B38 /* DBUserDetailTwoCell.h */,
 				313606C42059509300562B38 /* DBUserDetailTwoCell.m */,
+				313606E4205B906C00562B38 /* DBUserDetailCommonCell.h */,
+				313606E5205B906C00562B38 /* DBUserDetailCommonCell.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		313606E9205BAF2C00562B38 /* refresh_middle */ = {
+			isa = PBXGroup;
+			children = (
+				313606EA205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.h */,
+				313606EB205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.m */,
+			);
+			path = refresh_middle;
+			sourceTree = "<group>";
+		};
+		313606ED205BAF5C00562B38 /* refrshTop */ = {
+			isa = PBXGroup;
+			children = (
+				313606EE205BAF7400562B38 /* DBUserDetailRefreshTopViewController.h */,
+				313606EF205BAF7400562B38 /* DBUserDetailRefreshTopViewController.m */,
+			);
+			path = refrshTop;
 			sourceTree = "<group>";
 		};
 		313CE9BA2056244800139D16 /* PushAnimation */ = {
@@ -640,6 +674,8 @@
 				313CE9C720562AF200139D16 /* DBPushAnimationListCell.m */,
 				313CE9CD205647E700139D16 /* DBAnimationListLayout.h */,
 				313CE9CE205647E700139D16 /* DBAnimationListLayout.m */,
+				313606F1205BB11300562B38 /* DBAnimationDetailHeadView.h */,
+				313606F2205BB11300562B38 /* DBAnimationDetailHeadView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1489,6 +1525,7 @@
 				319A0F431F6157760088547F /* MJRefreshBackGifFooter.m in Sources */,
 				319A0E761F612B710088547F /* NetworkHelper.m in Sources */,
 				319A0F461F6157760088547F /* MJRefreshGifHeader.m in Sources */,
+				313606F0205BAF7400562B38 /* DBUserDetailRefreshTopViewController.m in Sources */,
 				319A0F3B1F6157760088547F /* MJRefreshAutoFooter.m in Sources */,
 				319A0F051F6156800088547F /* UIButton+WebCache.m in Sources */,
 				319A0E751F612B710088547F /* BaseRequest.m in Sources */,
@@ -1499,6 +1536,7 @@
 				313CE9CC20562F5F00139D16 /* NSString+DBSizeForString.m in Sources */,
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
 				319A0EA21F612DEB0088547F /* BaseTabBarController.m in Sources */,
+				313606F3205BB11300562B38 /* DBAnimationDetailHeadView.m in Sources */,
 				313606AA20592DB500562B38 /* DBUserDetailListViewController.m in Sources */,
 				319A0F4C1F6157760088547F /* UIScrollView+MJExtension.m in Sources */,
 				3162D66D202D8B0800DAB174 /* YYFPSLabel.m in Sources */,
@@ -1517,6 +1555,7 @@
 				313CE9CF205647E700139D16 /* DBAnimationListLayout.m in Sources */,
 				313606B820594EA500562B38 /* DBUserDetailBaseListViewController.m in Sources */,
 				313606B0205930E400562B38 /* DBUserDetailListBackgroundViewController.m in Sources */,
+				313606E6205B906C00562B38 /* DBUserDetailCommonCell.m in Sources */,
 				319A0EC31F6135820088547F /* AFURLRequestSerialization.m in Sources */,
 				319A0F4E1F6157760088547F /* UIView+MJExtension.m in Sources */,
 				313606C22059503F00562B38 /* DBUserDetailTwoViewController.m in Sources */,
@@ -1548,6 +1587,7 @@
 				319A0F411F6157760088547F /* MJRefreshAutoNormalFooter.m in Sources */,
 				319A0F071F6156800088547F /* UIImage+MultiFormat.m in Sources */,
 				3150854320452BF400AF1970 /* DBCustomLibraryPreviewViewController.m in Sources */,
+				313606EC205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.m in Sources */,
 				319A0E791F612B710088547F /* PPHTTPResponseSerializer.m in Sources */,
 				319A0E481F6128780088547F /* Reachability.m in Sources */,
 				319A0EFE1F6156800088547F /* SDImageCache.m in Sources */,

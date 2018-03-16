@@ -8,8 +8,9 @@
 
 #import "DBUserDetailListViewController.h"
 
-//V
+//VC
 #import "DBUserDetailListBackgroundViewController.h"
+#import "DBUserDetailRefreshTopViewController.h"
 
 @interface DBUserDetailListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -64,8 +65,8 @@ static NSString *userDetailListCellID = @"UserDetailListCellID";
     }
     else if(indexPath.row == 1)
     {
-//        DBPushAnimationListViewController *vc = [DBPushAnimationListViewController new];
-//        [self.navigationController pushViewController:vc animated:YES];
+        DBUserDetailRefreshTopViewController *vc = [DBUserDetailRefreshTopViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (indexPath.row == 2)
     {

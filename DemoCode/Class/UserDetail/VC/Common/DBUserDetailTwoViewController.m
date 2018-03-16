@@ -8,6 +8,8 @@
 
 #import "DBUserDetailTwoViewController.h"
 #import "DBUserDetailTwoCell.h"
+#import "UIScrollView+AURefreshMethods.h"
+
 @interface DBUserDetailTwoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
 
 @property (strong, nonatomic) UICollectionView *collView;
@@ -27,6 +29,11 @@ static NSString *userDetailTwoCellID = @"DBUserDetailTwoCell";
     [self.view addSubview:self.collView];
 }
 
+- (void)setPointY:(CGFloat)pointY
+{
+    [super setPointY:pointY];
+    [self.collView setContentOffset:kPoint(self.collView.contentOffset.x, pointY)];
+}
 #pragma mark - scrollDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -74,6 +81,10 @@ static NSString *userDetailTwoCellID = @"DBUserDetailTwoCell";
                 // Fallback on earlier versions
                 self.automaticallyAdjustsScrollViewInsets = NO;
             }
+            WS(weakSelf);
+            [collection addHeaderRefreshMethodWithCallback:^{
+                [weakSelf.collView.mj_header endRefreshing];
+            }];
             collection;
         });
     }

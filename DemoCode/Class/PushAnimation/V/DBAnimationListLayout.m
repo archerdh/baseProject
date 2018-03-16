@@ -50,11 +50,25 @@ static UIEdgeInsets edge ;
     numberOfCol = self.numberOfCol == 0 ? numberOfCol : self.numberOfCol;
     edge = self.sectionInset;
     
-    
     [self.lastHeightForColArray removeAllObjects];
-    for (NSInteger i = 0; i < numberOfCol; i++) {
-        [self.lastHeightForColArray addObject:@(edge.top)];
+    
+    //头部视图
+    UICollectionViewLayoutAttributes * layoutHeader = [UICollectionViewLayoutAttributes   layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathWithIndex:0]];
+    if (self.headSize.height > 0) {
+        layoutHeader.frame = CGRectMake(0,0, self.headSize.width, self.headSize.height);
+        [self.attrArray addObject:layoutHeader];
+        for (NSInteger i = 0; i < numberOfCol; i++) {
+            [self.lastHeightForColArray addObject:@(edge.top + self.headSize.height)];
+        }
     }
+    //非头部
+    else
+    {
+        for (NSInteger i = 0; i < numberOfCol; i++) {
+            [self.lastHeightForColArray addObject:@(edge.top)];
+        }
+    }
+    
     NSInteger count = [self.collectionView numberOfItemsInSection:0];
     
     for (NSInteger i = 0 ; i < count; i++) {

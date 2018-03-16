@@ -10,4 +10,6 @@
 
 @interface DBUserDetailBackgroundView : UIView
 
+@property (assign, nonatomic) CGFloat offset;
+
 @end

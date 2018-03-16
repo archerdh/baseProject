@@ -19,4 +19,8 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)setPointY:(CGFloat)pointY
+{
+    _pointY = pointY;
+}
 @end
