@@ -18,6 +18,7 @@
 
 //VC
 #import "BaseNavigationController.h"
+#import "DBUserDetailListViewController.h"
 
 @interface DBPushAnimationDetailViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, DBAnimationListLayoutDelegate>
 
@@ -56,6 +57,7 @@ static NSString *animationDetailHeadID = @"DBAnimationDetailHeadViewHeadCellID";
 
 - (void)setupViews
 {
+    [self addNavigationBar];
     NSMutableArray* array = [NSMutableArray array];
     NSArray* dicArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"1.plist" ofType:nil]];
     
@@ -79,7 +81,7 @@ static NSString *animationDetailHeadID = @"DBAnimationDetailHeadViewHeadCellID";
 #pragma mark - action
 - (void)backClick
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController pushViewController:[DBUserDetailListViewController new] animated:YES];
 }
 
 #pragma mark UICollectionViewDataSource, UICollectionViewDelegate
