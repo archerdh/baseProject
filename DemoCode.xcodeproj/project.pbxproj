@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		275E68A3204AFC1000D479C2 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68A2204AFC1000D479C2 /* NotificationService.m */; };
 		275E68A7204AFC1000D479C2 /* DemoCodeNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		275E68DE205E0C2D00D479C2 /* DBUserDetailChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68DD205E0C2D00D479C2 /* DBUserDetailChildViewController.m */; };
+		275E68E7205E58B400D479C2 /* ScrollPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68E6205E58B400D479C2 /* ScrollPageViewController.m */; };
+		275E68EA205E58C700D479C2 /* FDSlideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68E9205E58C700D479C2 /* FDSlideBar.m */; };
+		275E68ED205E58EC00D479C2 /* FDSlideBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68EB205E58EB00D479C2 /* FDSlideBarItem.m */; };
+		275E68F0205E5A0600D479C2 /* DBUserDetailContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68EF205E5A0600D479C2 /* DBUserDetailContentViewController.m */; };
+		275E68F3205E665500D479C2 /* DBGestureTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68F2205E665500D479C2 /* DBGestureTableView.m */; };
 		313606AA20592DB500562B38 /* DBUserDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606A920592DB500562B38 /* DBUserDetailListViewController.m */; };
 		313606B0205930E400562B38 /* DBUserDetailListBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606AF205930E400562B38 /* DBUserDetailListBackgroundViewController.m */; };
 		313606B420594E1900562B38 /* DBUserDetailBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606B320594E1900562B38 /* DBUserDetailBackgroundView.m */; };
@@ -211,6 +217,18 @@
 		275E68A1204AFC1000D479C2 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		275E68A2204AFC1000D479C2 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		275E68A4204AFC1000D479C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		275E68DC205E0C2D00D479C2 /* DBUserDetailChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailChildViewController.h; sourceTree = "<group>"; };
+		275E68DD205E0C2D00D479C2 /* DBUserDetailChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailChildViewController.m; sourceTree = "<group>"; };
+		275E68E5205E58B400D479C2 /* ScrollPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollPageViewController.h; sourceTree = "<group>"; };
+		275E68E6205E58B400D479C2 /* ScrollPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollPageViewController.m; sourceTree = "<group>"; };
+		275E68E8205E58C700D479C2 /* FDSlideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSlideBar.h; sourceTree = "<group>"; };
+		275E68E9205E58C700D479C2 /* FDSlideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDSlideBar.m; sourceTree = "<group>"; };
+		275E68EB205E58EB00D479C2 /* FDSlideBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDSlideBarItem.m; sourceTree = "<group>"; };
+		275E68EC205E58EB00D479C2 /* FDSlideBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSlideBarItem.h; sourceTree = "<group>"; };
+		275E68EE205E5A0600D479C2 /* DBUserDetailContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailContentViewController.h; sourceTree = "<group>"; };
+		275E68EF205E5A0600D479C2 /* DBUserDetailContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailContentViewController.m; sourceTree = "<group>"; };
+		275E68F1205E665500D479C2 /* DBGestureTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBGestureTableView.h; sourceTree = "<group>"; };
+		275E68F2205E665500D479C2 /* DBGestureTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBGestureTableView.m; sourceTree = "<group>"; };
 		313606A820592DB500562B38 /* DBUserDetailListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListViewController.h; sourceTree = "<group>"; };
 		313606A920592DB500562B38 /* DBUserDetailListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailListViewController.m; sourceTree = "<group>"; };
 		313606AE205930E400562B38 /* DBUserDetailListBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListBackgroundViewController.h; sourceTree = "<group>"; };
@@ -588,6 +606,8 @@
 			children = (
 				313606B220594E1900562B38 /* DBUserDetailBackgroundView.h */,
 				313606B320594E1900562B38 /* DBUserDetailBackgroundView.m */,
+				275E68DC205E0C2D00D479C2 /* DBUserDetailChildViewController.h */,
+				275E68DD205E0C2D00D479C2 /* DBUserDetailChildViewController.m */,
 			);
 			path = background;
 			sourceTree = "<group>";
@@ -614,6 +634,8 @@
 				313606C42059509300562B38 /* DBUserDetailTwoCell.m */,
 				313606E4205B906C00562B38 /* DBUserDetailCommonCell.h */,
 				313606E5205B906C00562B38 /* DBUserDetailCommonCell.m */,
+				275E68F1205E665500D479C2 /* DBGestureTableView.h */,
+				275E68F2205E665500D479C2 /* DBGestureTableView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -630,8 +652,16 @@
 		313606ED205BAF5C00562B38 /* refrshTop */ = {
 			isa = PBXGroup;
 			children = (
+				275E68E8205E58C700D479C2 /* FDSlideBar.h */,
+				275E68E9205E58C700D479C2 /* FDSlideBar.m */,
+				275E68EC205E58EB00D479C2 /* FDSlideBarItem.h */,
+				275E68EB205E58EB00D479C2 /* FDSlideBarItem.m */,
+				275E68E5205E58B400D479C2 /* ScrollPageViewController.h */,
+				275E68E6205E58B400D479C2 /* ScrollPageViewController.m */,
 				313606EE205BAF7400562B38 /* DBUserDetailRefreshTopViewController.h */,
 				313606EF205BAF7400562B38 /* DBUserDetailRefreshTopViewController.m */,
+				275E68EE205E5A0600D479C2 /* DBUserDetailContentViewController.h */,
+				275E68EF205E5A0600D479C2 /* DBUserDetailContentViewController.m */,
 			);
 			path = refrshTop;
 			sourceTree = "<group>";
@@ -1483,6 +1513,7 @@
 				319A0F041F6156800088547F /* SDWebImagePrefetcher.m in Sources */,
 				319A0EC21F6135820088547F /* AFSecurityPolicy.m in Sources */,
 				319A0EA91F612DEB0088547F /* BaseCell.m in Sources */,
+				275E68F0205E5A0600D479C2 /* DBUserDetailContentViewController.m in Sources */,
 				319A0E5C1F612A810088547F /* NSString+Additional.m in Sources */,
 				319A0EAB1F612DEB0088547F /* BaseDoubleLineView.m in Sources */,
 				313606B420594E1900562B38 /* DBUserDetailBackgroundView.m in Sources */,
@@ -1491,6 +1522,7 @@
 				319A0DD11F6123A90088547F /* AppDelegate.m in Sources */,
 				31B9D5B0204D76C7009C21AF /* DBTestCarmerViewController.m in Sources */,
 				319A0F3F1F6157760088547F /* MJRefreshHeader.m in Sources */,
+				275E68E7205E58B400D479C2 /* ScrollPageViewController.m in Sources */,
 				319A0E771F612B710088547F /* PPAFHTTPClient.m in Sources */,
 				313606C52059509300562B38 /* DBUserDetailTwoCell.m in Sources */,
 				315084DA2043D63000AF1970 /* DBImageListModel.m in Sources */,
@@ -1530,8 +1562,10 @@
 				319A0F051F6156800088547F /* UIButton+WebCache.m in Sources */,
 				319A0E751F612B710088547F /* BaseRequest.m in Sources */,
 				319A0DDA1F6123EE0088547F /* DBConst.m in Sources */,
+				275E68DE205E0C2D00D479C2 /* DBUserDetailChildViewController.m in Sources */,
 				31508549204554C700AF1970 /* DBCustomListLibraryViewController.m in Sources */,
 				319A0E411F6128780088547F /* GTMBase64.m in Sources */,
+				275E68EA205E58C700D479C2 /* FDSlideBar.m in Sources */,
 				31B9D58D20480E89009C21AF /* DBCustomLibraryCameraCell.m in Sources */,
 				313CE9CC20562F5F00139D16 /* NSString+DBSizeForString.m in Sources */,
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
@@ -1542,6 +1576,7 @@
 				3162D66D202D8B0800DAB174 /* YYFPSLabel.m in Sources */,
 				319A0F451F6157760088547F /* MJRefreshBackStateFooter.m in Sources */,
 				31B9D599204940B0009C21AF /* DBFaceIDViewController.m in Sources */,
+				275E68F3205E665500D479C2 /* DBGestureTableView.m in Sources */,
 				319A0F541F61586F0088547F /* NullSafe.m in Sources */,
 				3150854E20455E2700AF1970 /* DBCustomLibraryTabCell.m in Sources */,
 				319A0EAD1F612DEB0088547F /* BaseLineCell.m in Sources */,
@@ -1575,6 +1610,7 @@
 				31B9D5B3204D7718009C21AF /* TBPreviewView.m in Sources */,
 				319A0EDB1F6155A80088547F /* Jastor.m in Sources */,
 				3150854020450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m in Sources */,
+				275E68ED205E58EC00D479C2 /* FDSlideBarItem.m in Sources */,
 				315084DF2043F69100AF1970 /* DBCustomLibraryImageCell.m in Sources */,
 				319A0EC11F6135820088547F /* AFNetworkReachabilityManager.m in Sources */,
 				319A0F001F6156800088547F /* SDWebImageDecoder.m in Sources */,
