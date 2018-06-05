@@ -10,6 +10,7 @@
 //M
 #import "DBPushAnimationModel.h"
 #import "NSString+DBSizeForString.h"
+#import "DBImageCache.h"
 //V
 #import "UIImageView+WebCache.h"
 @interface DBPushAnimationListCell ()
@@ -37,7 +38,13 @@
 - (void)setModel:(DBPushAnimationModel *)model
 {
     _model = model;
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.img]];
+//    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    
+    [[DBImageCache shareImageCache] db_setImageWithUrl:[NSURL URLWithString:model.img] completed:^(UIImage *image, NSError *error, NSURL *imageURL) {
+        if (!error) {
+            self.headImageView.image = image;
+        }
+    }];
     self.detailLabel.text = model.des;
     self.nameLabel.text = model.name;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.icon]];

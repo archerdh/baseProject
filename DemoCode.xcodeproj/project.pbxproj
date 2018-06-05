@@ -15,6 +15,7 @@
 		275E68ED205E58EC00D479C2 /* FDSlideBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68EB205E58EB00D479C2 /* FDSlideBarItem.m */; };
 		275E68F0205E5A0600D479C2 /* DBUserDetailContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68EF205E5A0600D479C2 /* DBUserDetailContentViewController.m */; };
 		275E68F3205E665500D479C2 /* DBGestureTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68F2205E665500D479C2 /* DBGestureTableView.m */; };
+		310F9CE120C655F7006A981D /* DBImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 310F9CE020C655F7006A981D /* DBImageCache.m */; };
 		313606AA20592DB500562B38 /* DBUserDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606A920592DB500562B38 /* DBUserDetailListViewController.m */; };
 		313606B0205930E400562B38 /* DBUserDetailListBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606AF205930E400562B38 /* DBUserDetailListBackgroundViewController.m */; };
 		313606B420594E1900562B38 /* DBUserDetailBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606B320594E1900562B38 /* DBUserDetailBackgroundView.m */; };
@@ -229,6 +230,8 @@
 		275E68EF205E5A0600D479C2 /* DBUserDetailContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailContentViewController.m; sourceTree = "<group>"; };
 		275E68F1205E665500D479C2 /* DBGestureTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBGestureTableView.h; sourceTree = "<group>"; };
 		275E68F2205E665500D479C2 /* DBGestureTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBGestureTableView.m; sourceTree = "<group>"; };
+		310F9CDF20C655F7006A981D /* DBImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBImageCache.h; sourceTree = "<group>"; };
+		310F9CE020C655F7006A981D /* DBImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBImageCache.m; sourceTree = "<group>"; };
 		313606A820592DB500562B38 /* DBUserDetailListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListViewController.h; sourceTree = "<group>"; };
 		313606A920592DB500562B38 /* DBUserDetailListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailListViewController.m; sourceTree = "<group>"; };
 		313606AE205930E400562B38 /* DBUserDetailListBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListBackgroundViewController.h; sourceTree = "<group>"; };
@@ -559,6 +562,15 @@
 				275E68A4204AFC1000D479C2 /* Info.plist */,
 			);
 			path = DemoCodeNotification;
+			sourceTree = "<group>";
+		};
+		310F9CDE20C63F98006A981D /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				310F9CDF20C655F7006A981D /* DBImageCache.h */,
+				310F9CE020C655F7006A981D /* DBImageCache.m */,
+			);
+			path = ImageCache;
 			sourceTree = "<group>";
 		};
 		313606A620592D8700562B38 /* UserDetail */ = {
@@ -904,6 +916,7 @@
 		319A0DE11F6126AA0088547F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				310F9CDE20C63F98006A981D /* ImageCache */,
 				313606A620592D8700562B38 /* UserDetail */,
 				313CE9BA2056244800139D16 /* PushAnimation */,
 				31B9D59620494097009C21AF /* FaceID */,
@@ -1391,13 +1404,13 @@
 				TargetAttributes = {
 					275E689E204AFC1000D479C2 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = ZYQR8365W8;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = MVGE4EUB2L;
+						ProvisioningStyle = Manual;
 					};
 					319A0DAA1F6122590088547F = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = ZYQR8365W8;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = MVGE4EUB2L;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1607,6 +1620,7 @@
 				313606BB20594EDB00562B38 /* DBUserDetailItemOneViewController.m in Sources */,
 				319A0E5E1F612A810088547F /* UIImage+Additional.m in Sources */,
 				319A0F3D1F6157760088547F /* MJRefreshComponent.m in Sources */,
+				310F9CE120C655F7006A981D /* DBImageCache.m in Sources */,
 				31B9D5B3204D7718009C21AF /* TBPreviewView.m in Sources */,
 				319A0EDB1F6155A80088547F /* Jastor.m in Sources */,
 				3150854020450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m in Sources */,
@@ -1677,14 +1691,16 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZYQR8365W8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MVGE4EUB2L;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = DemoCodeNotification/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode.DemoCodeNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7047c547-5e18-43f3-9749-49032f6de122";
+				PROVISIONING_PROFILE_SPECIFIER = "all_app_ provide";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1702,14 +1718,15 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZYQR8365W8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = DemoCodeNotification/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode.DemoCodeNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1810,12 +1827,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZYQR8365W8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MVGE4EUB2L;
 				GCC_PREFIX_HEADER = $SRCROOT/DemoCode/Others/DBPrefixHeader.pch;
 				INFOPLIST_FILE = DemoCode/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7047c547-5e18-43f3-9749-49032f6de122";
+				PROVISIONING_PROFILE_SPECIFIER = "all_app_ provide";
 			};
 			name = Debug;
 		};
@@ -1824,12 +1844,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZYQR8365W8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = $SRCROOT/DemoCode/Others/DBPrefixHeader.pch;
 				INFOPLIST_FILE = DemoCode/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
