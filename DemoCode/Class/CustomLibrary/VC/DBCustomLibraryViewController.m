@@ -21,7 +21,7 @@
 #import "DBCustomLibraryForceTouchViewController.h"
 #import "DBCustomLibraryNavViewController.h"
 #import "DBCustomLibraryPreviewViewController.h"
-#import "DBTestCarmerViewController.h"
+#import "DBRecordViewController.h"
 
 @interface DBCustomLibraryViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate>
 
@@ -162,7 +162,7 @@ static NSString *libraryCarmerID = @"DBCustomLibraryCameraCell";
     DBCustomLibraryNavViewController *nav = (DBCustomLibraryNavViewController *)self.navigationController;
     DBLibraryConfig *config = nav.config;
     if (self.model.isCamera && ((indexPath.item == 0 && !config.sortAscending) || (indexPath.item == self.model.count && config.sortAscending))) {
-        DBTestCarmerViewController *vc = [[DBTestCarmerViewController alloc] init];
+        DBRecordViewController *vc = [[DBRecordViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
     }
     
