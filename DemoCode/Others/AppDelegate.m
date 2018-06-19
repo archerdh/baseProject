@@ -10,7 +10,8 @@
 //VC
 #import "DBRootViewController.h"
 #import "BaseNavigationController.h"
-
+#import <CoreData/CoreData.h>
+#import <CoreData/NSPersistentStoreCoordinator.h>
 #import <UserNotifications/UserNotifications.h>
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
@@ -82,6 +83,12 @@ CGFloat KTC_BOTTOM_MARGIN = 0.0f;// iPhoneX底部不可编辑高度
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSError *error = nil;
+    if (!_manageObjContext) {
+        if ([_manageObjContext hasChanges] && ![_manageObjContext save:&error]) {
+            abort();
+        }
+    }
 }
 
 #pragma mark - pushNotination
@@ -197,6 +204,47 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
         DBRootViewController *root = nav.childViewControllers.firstObject;
         [root chooseImage];
     }
+}
+
+#pragma coreData
+@synthesize manageObjContext = _manageObjContext;
+- (NSManagedObjectContext *)manageObjContext
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+        @synchronized(self)
+        {
+            if (!_manageObjContext) {
+                NSPersistentContainer *_persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Model"];
+                [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription * storeDescription, NSError * error) {
+                    if (error) {
+                        abort();
+                    }
+                }];
+                _manageObjContext = _persistentContainer.viewContext;
+            }
+        }
+    }
+    else
+    {
+        @synchronized(self)
+        {
+            if (!_manageObjContext) {
+                NSURL *modeUrl = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
+                NSManagedObjectModel *managerModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modeUrl];
+                NSPersistentStoreCoordinator *persion = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managerModel];
+                NSURL *storeURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].lastObject URLByAppendingPathComponent:@"Model.sqlite"];
+                NSError *error;
+                if ([persion addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+                    abort();
+                }
+                if (persion) {
+                    _manageObjContext = [[NSManagedObjectContext alloc] init];
+                    _manageObjContext.persistentStoreCoordinator = persion;
+                }
+            }
+        }
+    }
+    return _manageObjContext;
 }
 
 @end

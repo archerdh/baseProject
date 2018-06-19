@@ -15,6 +15,7 @@
 #import "DBFaceIDViewController.h"
 #import "DBUserDetailListViewController.h"
 #import "DBPushAnimationListViewController.h"
+#import "DBCoreDataListViewController.h"
 
 //V
 #import "YYFPSLabel.h"
@@ -38,7 +39,7 @@ static NSString *rootCellID = @"rootCellID";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.sourceArr = @[@"进入相册", @"转场动画", @"个人中心各种形式"];
+    self.sourceArr = @[@"进入相册", @"转场动画", @"个人中心各种形式", @"CoreData"];
     [self setupViews];
 }
 
@@ -122,6 +123,11 @@ static NSString *rootCellID = @"rootCellID";
     else if (indexPath.row == 2)
     {
         DBUserDetailListViewController *vc = [[DBUserDetailListViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (indexPath.row == 3)
+    {
+        DBCoreDataListViewController *vc = [[DBCoreDataListViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     //face

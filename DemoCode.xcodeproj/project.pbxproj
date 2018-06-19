@@ -15,8 +15,14 @@
 		275E68ED205E58EC00D479C2 /* FDSlideBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68EB205E58EB00D479C2 /* FDSlideBarItem.m */; };
 		275E68F0205E5A0600D479C2 /* DBUserDetailContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68EF205E5A0600D479C2 /* DBUserDetailContentViewController.m */; };
 		275E68F3205E665500D479C2 /* DBGestureTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68F2205E665500D479C2 /* DBGestureTableView.m */; };
-		310F9CE120C655F7006A981D /* DBImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 310F9CE020C655F7006A981D /* DBImageCache.m */; };
-		311C3BF120D113EE006A3343 /* DBRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 311C3BF020D113EE006A3343 /* DBRecordViewController.m */; };
+		277A921420D9147E003F91A3 /* DBCoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 277A921320D9147E003F91A3 /* DBCoreDataModel.m */; };
+		277A921720D9152F003F91A3 /* DBCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 277A921620D9152F003F91A3 /* DBCoreDataManager.m */; };
+		2784627D20D9347A00FB6682 /* DBImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784627B20D9347A00FB6682 /* DBImageCache.m */; };
+		2784628120D934D300FB6682 /* DBRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784628020D934D300FB6682 /* DBRecordViewController.m */; };
+		27B727EE20D806AB005A80A5 /* DBCoreDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B727ED20D806AB005A80A5 /* DBCoreDataListViewController.m */; };
+		27B727F220D8070B005A80A5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27B727F020D8070B005A80A5 /* Model.xcdatamodeld */; };
+		310F9CE120C655F7006A981D /* (null) in Sources */ = {isa = PBXBuildFile; };
+		311C3BF120D113EE006A3343 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		313606AA20592DB500562B38 /* DBUserDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606A920592DB500562B38 /* DBUserDetailListViewController.m */; };
 		313606B0205930E400562B38 /* DBUserDetailListBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606AF205930E400562B38 /* DBUserDetailListBackgroundViewController.m */; };
 		313606B420594E1900562B38 /* DBUserDetailBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313606B320594E1900562B38 /* DBUserDetailBackgroundView.m */; };
@@ -228,10 +234,17 @@
 		275E68EF205E5A0600D479C2 /* DBUserDetailContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailContentViewController.m; sourceTree = "<group>"; };
 		275E68F1205E665500D479C2 /* DBGestureTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBGestureTableView.h; sourceTree = "<group>"; };
 		275E68F2205E665500D479C2 /* DBGestureTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBGestureTableView.m; sourceTree = "<group>"; };
-		310F9CDF20C655F7006A981D /* DBImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBImageCache.h; sourceTree = "<group>"; };
-		310F9CE020C655F7006A981D /* DBImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBImageCache.m; sourceTree = "<group>"; };
-		311C3BEF20D113EE006A3343 /* DBRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRecordViewController.h; sourceTree = "<group>"; };
-		311C3BF020D113EE006A3343 /* DBRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRecordViewController.m; sourceTree = "<group>"; };
+		277A921220D9147E003F91A3 /* DBCoreDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCoreDataModel.h; sourceTree = "<group>"; };
+		277A921320D9147E003F91A3 /* DBCoreDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCoreDataModel.m; sourceTree = "<group>"; };
+		277A921520D9152F003F91A3 /* DBCoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCoreDataManager.h; sourceTree = "<group>"; };
+		277A921620D9152F003F91A3 /* DBCoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCoreDataManager.m; sourceTree = "<group>"; };
+		2784627B20D9347A00FB6682 /* DBImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBImageCache.m; sourceTree = "<group>"; };
+		2784627C20D9347A00FB6682 /* DBImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBImageCache.h; sourceTree = "<group>"; };
+		2784627F20D934D300FB6682 /* DBRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBRecordViewController.h; sourceTree = "<group>"; };
+		2784628020D934D300FB6682 /* DBRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBRecordViewController.m; sourceTree = "<group>"; };
+		27B727EC20D806AB005A80A5 /* DBCoreDataListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCoreDataListViewController.h; sourceTree = "<group>"; };
+		27B727ED20D806AB005A80A5 /* DBCoreDataListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCoreDataListViewController.m; sourceTree = "<group>"; };
+		27B727F120D8070B005A80A5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		313606A820592DB500562B38 /* DBUserDetailListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListViewController.h; sourceTree = "<group>"; };
 		313606A920592DB500562B38 /* DBUserDetailListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserDetailListViewController.m; sourceTree = "<group>"; };
 		313606AE205930E400562B38 /* DBUserDetailListBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUserDetailListBackgroundViewController.h; sourceTree = "<group>"; };
@@ -558,22 +571,52 @@
 			path = DemoCodeNotification;
 			sourceTree = "<group>";
 		};
-		310F9CDE20C63F98006A981D /* ImageCache */ = {
+		2784627A20D9347A00FB6682 /* ImageCache */ = {
 			isa = PBXGroup;
 			children = (
-				310F9CDF20C655F7006A981D /* DBImageCache.h */,
-				310F9CE020C655F7006A981D /* DBImageCache.m */,
+				2784627B20D9347A00FB6682 /* DBImageCache.m */,
+				2784627C20D9347A00FB6682 /* DBImageCache.h */,
 			);
 			path = ImageCache;
 			sourceTree = "<group>";
 		};
-		311C3BF220D113F6006A3343 /* Record */ = {
+		2784627E20D934D300FB6682 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				311C3BEF20D113EE006A3343 /* DBRecordViewController.h */,
-				311C3BF020D113EE006A3343 /* DBRecordViewController.m */,
+				2784627F20D934D300FB6682 /* DBRecordViewController.h */,
+				2784628020D934D300FB6682 /* DBRecordViewController.m */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		27B727EA20D8062A005A80A5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				27B727EF20D806FB005A80A5 /* Model */,
+				27B727EB20D80697005A80A5 /* VC */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		27B727EB20D80697005A80A5 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				27B727EC20D806AB005A80A5 /* DBCoreDataListViewController.h */,
+				27B727ED20D806AB005A80A5 /* DBCoreDataListViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		27B727EF20D806FB005A80A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27B727F020D8070B005A80A5 /* Model.xcdatamodeld */,
+				277A921220D9147E003F91A3 /* DBCoreDataModel.h */,
+				277A921320D9147E003F91A3 /* DBCoreDataModel.m */,
+				277A921520D9152F003F91A3 /* DBCoreDataManager.h */,
+				277A921620D9152F003F91A3 /* DBCoreDataManager.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		313606A620592D8700562B38 /* UserDetail */ = {
@@ -919,7 +962,8 @@
 		319A0DE11F6126AA0088547F /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				310F9CDE20C63F98006A981D /* ImageCache */,
+				2784627A20D9347A00FB6682 /* ImageCache */,
+				27B727EA20D8062A005A80A5 /* CoreData */,
 				313606A620592D8700562B38 /* UserDetail */,
 				313CE9BA2056244800139D16 /* PushAnimation */,
 				31B9D59620494097009C21AF /* FaceID */,
@@ -1336,7 +1380,7 @@
 		31E7BEE3202C59D400CD5BDF /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				311C3BF220D113F6006A3343 /* Record */,
+				2784627E20D934D300FB6682 /* Record */,
 				31E7BEE4202C59E300CD5BDF /* DBCustomLibraryViewController.h */,
 				31E7BEE5202C59E300CD5BDF /* DBCustomLibraryViewController.m */,
 				3150853E20450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.h */,
@@ -1541,9 +1585,12 @@
 				319A0F091F6156800088547F /* UIImageView+WebCache.m in Sources */,
 				319A0F021F6156800088547F /* SDWebImageDownloaderOperation.m in Sources */,
 				315084E2204406F400AF1970 /* UIButton+DBEnlargeTouchArea.m in Sources */,
+				277A921420D9147E003F91A3 /* DBCoreDataModel.m in Sources */,
 				319A0F421F6157760088547F /* MJRefreshAutoStateFooter.m in Sources */,
+				277A921720D9152F003F91A3 /* DBCoreDataManager.m in Sources */,
 				319A0F471F6157760088547F /* MJRefreshNormalHeader.m in Sources */,
 				319A0F511F6157A70088547F /* UIScrollView+AURefreshMethods.m in Sources */,
+				27B727EE20D806AB005A80A5 /* DBCoreDataListViewController.m in Sources */,
 				319A0F4B1F6157760088547F /* NSBundle+MJRefresh.m in Sources */,
 				3162D666202D742900DAB174 /* DBNavigationBar.m in Sources */,
 				319A0F061F6156800088547F /* UIImage+GIF.m in Sources */,
@@ -1556,6 +1603,7 @@
 				313CE9C820562AF200139D16 /* DBPushAnimationListCell.m in Sources */,
 				319A0F4A1F6157760088547F /* MJRefreshConst.m in Sources */,
 				319A0EB01F612DEB0088547F /* BaseView.m in Sources */,
+				2784628120D934D300FB6682 /* DBRecordViewController.m in Sources */,
 				319A0EFF1F6156800088547F /* SDWebImageCompat.m in Sources */,
 				319A0E451F6128780088547F /* NSData+Base64.m in Sources */,
 				319A0E5B1F612A810088547F /* NSMutableArray+Additional.m in Sources */,
@@ -1587,7 +1635,7 @@
 				31B9D599204940B0009C21AF /* DBFaceIDViewController.m in Sources */,
 				275E68F3205E665500D479C2 /* DBGestureTableView.m in Sources */,
 				319A0F541F61586F0088547F /* NullSafe.m in Sources */,
-				311C3BF120D113EE006A3343 /* DBRecordViewController.m in Sources */,
+				311C3BF120D113EE006A3343 /* (null) in Sources */,
 				3150854E20455E2700AF1970 /* DBCustomLibraryTabCell.m in Sources */,
 				319A0EAD1F612DEB0088547F /* BaseLineCell.m in Sources */,
 				319A0F481F6157760088547F /* MJRefreshStateHeader.m in Sources */,
@@ -1609,6 +1657,7 @@
 				319A0EA41F612DEB0088547F /* BaseModel.m in Sources */,
 				319A0E601F612A810088547F /* UIView+Additional.m in Sources */,
 				319A0EAF1F612DEB0088547F /* BaseLineView.m in Sources */,
+				27B727F220D8070B005A80A5 /* Model.xcdatamodeld in Sources */,
 				319A0F4D1F6157760088547F /* UIScrollView+MJRefresh.m in Sources */,
 				3150854620454C3900AF1970 /* DBCustomLibraryNavViewController.m in Sources */,
 				313606BF20594FD900562B38 /* DBUserDetailOneCell.m in Sources */,
@@ -1617,7 +1666,7 @@
 				313606BB20594EDB00562B38 /* DBUserDetailItemOneViewController.m in Sources */,
 				319A0E5E1F612A810088547F /* UIImage+Additional.m in Sources */,
 				319A0F3D1F6157760088547F /* MJRefreshComponent.m in Sources */,
-				310F9CE120C655F7006A981D /* DBImageCache.m in Sources */,
+				310F9CE120C655F7006A981D /* (null) in Sources */,
 				319A0EDB1F6155A80088547F /* Jastor.m in Sources */,
 				3150854020450A2C00AF1970 /* DBCustomLibraryForceTouchViewController.m in Sources */,
 				275E68ED205E58EC00D479C2 /* FDSlideBarItem.m in Sources */,
@@ -1633,6 +1682,7 @@
 				319A0F411F6157760088547F /* MJRefreshAutoNormalFooter.m in Sources */,
 				319A0F071F6156800088547F /* UIImage+MultiFormat.m in Sources */,
 				3150854320452BF400AF1970 /* DBCustomLibraryPreviewViewController.m in Sources */,
+				2784627D20D9347A00FB6682 /* DBImageCache.m in Sources */,
 				313606EC205BAF4100562B38 /* DBUserDetailRefreshMiddleViewController.m in Sources */,
 				319A0E791F612B710088547F /* PPHTTPResponseSerializer.m in Sources */,
 				319A0E481F6128780088547F /* Reachability.m in Sources */,
@@ -1715,14 +1765,15 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MVGE4EUB2L;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = DemoCodeNotification/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode.DemoCodeNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7047c547-5e18-43f3-9749-49032f6de122";
+				PROVISIONING_PROFILE_SPECIFIER = "all_app_ provide";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1842,14 +1893,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MVGE4EUB2L;
 				GCC_PREFIX_HEADER = $SRCROOT/DemoCode/Others/DBPrefixHeader.pch;
 				INFOPLIST_FILE = DemoCode/Others/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.archer.publishstream.DemoCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7047c547-5e18-43f3-9749-49032f6de122";
+				PROVISIONING_PROFILE_SPECIFIER = "all_app_ provide";
 			};
 			name = Release;
 		};
@@ -1884,6 +1936,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27B727F020D8070B005A80A5 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27B727F120D8070B005A80A5 /* Model.xcdatamodel */,
+			);
+			currentVersion = 27B727F120D8070B005A80A5 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 319A0DA31F6122590088547F /* Project object */;
 }
