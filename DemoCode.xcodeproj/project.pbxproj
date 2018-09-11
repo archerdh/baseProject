@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270F97372147FBEC00D74105 /* DBCellAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270F97362147FBEC00D74105 /* DBCellAnimationViewController.m */; };
 		275E68A3204AFC1000D479C2 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68A2204AFC1000D479C2 /* NotificationService.m */; };
 		275E68A7204AFC1000D479C2 /* DemoCodeNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		275E68DE205E0C2D00D479C2 /* DBUserDetailChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E68DD205E0C2D00D479C2 /* DBUserDetailChildViewController.m */; };
@@ -218,6 +219,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		270F97352147FBEC00D74105 /* DBCellAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCellAnimationViewController.h; sourceTree = "<group>"; };
+		270F97362147FBEC00D74105 /* DBCellAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCellAnimationViewController.m; sourceTree = "<group>"; };
 		275E689F204AFC1000D479C2 /* DemoCodeNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DemoCodeNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		275E68A1204AFC1000D479C2 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		275E68A2204AFC1000D479C2 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
@@ -561,6 +564,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270F97342147FBD500D74105 /* cellAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				270F97352147FBEC00D74105 /* DBCellAnimationViewController.h */,
+				270F97362147FBEC00D74105 /* DBCellAnimationViewController.m */,
+			);
+			path = cellAnimation;
+			sourceTree = "<group>";
+		};
 		275E68A0204AFC1000D479C2 /* DemoCodeNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,6 +974,7 @@
 		319A0DE11F6126AA0088547F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				270F97342147FBD500D74105 /* cellAnimation */,
 				2784627A20D9347A00FB6682 /* ImageCache */,
 				27B727EA20D8062A005A80A5 /* CoreData */,
 				313606A620592D8700562B38 /* UserDetail */,
@@ -1628,6 +1641,7 @@
 				319A0E5F1F612A810088547F /* UILabel+Additional.m in Sources */,
 				319A0EA21F612DEB0088547F /* BaseTabBarController.m in Sources */,
 				313606F3205BB11300562B38 /* DBAnimationDetailHeadView.m in Sources */,
+				270F97372147FBEC00D74105 /* DBCellAnimationViewController.m in Sources */,
 				313606AA20592DB500562B38 /* DBUserDetailListViewController.m in Sources */,
 				319A0F4C1F6157760088547F /* UIScrollView+MJExtension.m in Sources */,
 				3162D66D202D8B0800DAB174 /* YYFPSLabel.m in Sources */,
