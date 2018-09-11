@@ -8,8 +8,6 @@
 
 #import "DBCellAnimationViewController.h"
 /*
- test
- ssssaaa
  */
 @interface DBCellAnimationViewController ()
 
